@@ -18,7 +18,7 @@ ubuntu, java, git
 
 Current state
 
-Image createt with "docker build -t name" when console in directory of the dockerfile. Creates an image that that conatins the prepared glassfish version (look https://github.com/cocome-community-case-study/cocome-cloud-jee-docker/tree/master/glassfish) in usr/src/ 
+Image created with "docker build -t name" when console in directory of the dockerfile. Creates an image that that conatins the prepared glassfish version (look https://github.com/cocome-community-case-study/cocome-cloud-jee-docker/tree/master/glassfish) in usr/src/ 
 
 
 
