@@ -37,7 +37,7 @@ RUN git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-do
 #COPY ./src/startdomain.sh usr/src
 
 RUN rm usr/src/*.md  && \
-	rm -r usr/src/dockerimagecreator  &&\
-	ls usr/src/
+	rm -r usr/src/docker && \
+	rm usr/src/glassfish/README.md
 
 EXPOSE 8048, 8080, 8148, 8180, 8248, 8280, 8348, 8380, 8448, 8480
