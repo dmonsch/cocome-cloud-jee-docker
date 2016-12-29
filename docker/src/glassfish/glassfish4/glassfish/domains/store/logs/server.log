@@ -1,0 +1,126 @@
+[2016-12-29T20:41:29.416+0100] [] [INFO] [NCLS-GFLAUNCHER-00005] [javax.enterprise.launcher] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1483040489416] [levelValue: 800] [[
+  JVM invocation command line:
+/usr/lib/jvm/java-8-oracle/bin/java
+-cp
+/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/modules/glassfish.jar
+-XX:+UnlockDiagnosticVMOptions
+-XX:NewRatio=2
+-XX:MaxPermSize=192m
+-Xmx512m
+-client
+-javaagent:/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/lib/monitor/flashlight-agent.jar
+-Djavax.xml.accessExternalSchema=all
+-Djavax.net.ssl.trustStore=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains/store/config/cacerts.jks
+-Djdk.corba.allowOutputStreamSubclass=true
+-Dfelix.fileinstall.dir=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/modules/autostart/
+-Dorg.glassfish.additionalOSGiBundlesToStart=org.apache.felix.shell,org.apache.felix.gogo.runtime,org.apache.felix.gogo.shell,org.apache.felix.gogo.command,org.apache.felix.shell.remote,org.apache.felix.fileinstall
+-Dcom.sun.aas.installRoot=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish
+-Dfelix.fileinstall.poll=5000
+-Djava.endorsed.dirs=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/modules/endorsed:/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/lib/endorsed
+-Djava.security.policy=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains/store/config/server.policy
+-Dosgi.shell.telnet.maxconn=1
+-Dfelix.fileinstall.bundles.startTransient=true
+-Dcom.sun.enterprise.config.config_environment_factory_class=com.sun.enterprise.config.serverbeans.AppserverConfigEnvironmentFactory
+-Dfelix.fileinstall.log.level=2
+-Djavax.net.ssl.keyStore=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains/store/config/keystore.jks
+-Djava.security.auth.login.config=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains/store/config/login.conf
+-Dfelix.fileinstall.disableConfigSave=false
+-Dfelix.fileinstall.bundles.new.start=true
+-Dcom.sun.aas.instanceRoot=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains/store
+-Dosgi.shell.telnet.port=8166
+-Dgosh.args=--nointeractive
+-Dcom.sun.enterprise.security.httpsOutboundKeyAlias=s1as
+-Dosgi.shell.telnet.ip=127.0.0.1
+-DANTLR_USE_DIRECT_CLASS_LOADING=true
+-Djava.awt.headless=true
+-Dcom.ctc.wstx.returnNullForDefaultNamespace=true
+-Djava.ext.dirs=/usr/lib/jvm/java-8-oracle/lib/ext:/usr/lib/jvm/java-8-oracle/jre/lib/ext:/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains/store/lib/ext
+-Djdbc.drivers=org.apache.derby.jdbc.ClientDriver
+-Djava.library.path=/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+com.sun.enterprise.glassfish.bootstrap.ASMain
+-upgrade
+false
+-domaindir
+/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains/store
+-read-stdin
+true
+-asadmin-args
+--host,,,localhost,,,--port,,,4848,,,--secure=false,,,--terse=false,,,--echo=false,,,--interactive=true,,,start-domain,,,--verbose=false,,,--watchdog=false,,,--debug=false,,,--domaindir,,,/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains,,,store
+-domainname
+store
+-instancename
+server
+-type
+DAS
+-verbose
+false
+-asadmin-classpath
+/home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/lib/client/appserver-cli.jar
+-debug
+false
+-asadmin-classname
+com.sun.enterprise.admin.cli.AdminMain]]
+
+[2016-12-29T20:41:34.848+0100] [glassfish 4.1] [INFO] [NCLS-LOGGING-00009] [javax.enterprise.logging] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040494848] [levelValue: 800] [[
+  Running GlassFish Version: GlassFish Server Open Source Edition  4.1.1  (build 1)]]
+
+[2016-12-29T20:41:34.850+0100] [glassfish 4.1] [INFO] [NCLS-LOGGING-00010] [javax.enterprise.logging] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040494850] [levelValue: 800] [[
+  Server log file is using Formatter class: com.sun.enterprise.server.logging.ODLLogFormatter]]
+
+[2016-12-29T20:41:35.131+0100] [glassfish 4.1] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=19 _ThreadName=RunLevelControllerThread-1483040494526] [timeMillis: 1483040495131] [levelValue: 800] [[
+  Realm [admin-realm] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2016-12-29T20:41:35.137+0100] [glassfish 4.1] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=19 _ThreadName=RunLevelControllerThread-1483040494526] [timeMillis: 1483040495137] [levelValue: 800] [[
+  Realm [file] of classtype [com.sun.enterprise.security.auth.realm.file.FileRealm] successfully created.]]
+
+[2016-12-29T20:41:35.149+0100] [glassfish 4.1] [INFO] [NCLS-SECURITY-01115] [javax.enterprise.system.core.security] [tid: _ThreadID=19 _ThreadName=RunLevelControllerThread-1483040494526] [timeMillis: 1483040495149] [levelValue: 800] [[
+  Realm [certificate] of classtype [com.sun.enterprise.security.auth.realm.certificate.CertificateRealm] successfully created.]]
+
+[2016-12-29T20:41:35.414+0100] [glassfish 4.1] [INFO] [] [org.hibernate.validator.internal.util.Version] [tid: _ThreadID=16 _ThreadName=RunLevelControllerThread-1483040494511] [timeMillis: 1483040495414] [levelValue: 800] [[
+  HV000001: Hibernate Validator 5.1.2.Final]]
+
+[2016-12-29T20:41:35.914+0100] [glassfish 4.1] [INFO] [SEC-SVCS-00100] [javax.enterprise.security.services] [tid: _ThreadID=18 _ThreadName=RunLevelControllerThread-1483040494525] [timeMillis: 1483040495914] [levelValue: 800] [[
+  Authorization Service has successfully initialized.]]
+
+[2016-12-29T20:41:36.200+0100] [glassfish 4.1] [INFO] [] [org.glassfish.ha.store.spi.BackingStoreFactoryRegistry] [tid: _ThreadID=24 _ThreadName=RunLevelControllerThread-1483040495233] [timeMillis: 1483040496200] [levelValue: 800] [[
+  Registered org.glassfish.ha.store.adapter.cache.ShoalBackingStoreProxy for persistence-type = replicated in BackingStoreFactoryRegistry]]
+
+[2016-12-29T20:41:36.279+0100] [glassfish 4.1] [WARNING] [] [org.glassfish.grizzly.config.Utils] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040496279] [levelValue: 900] [[
+  Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener-1, realClassName=org.glassfish.grizzly.http2.Http2AddOn]]
+
+[2016-12-29T20:41:36.448+0100] [glassfish 4.1] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040496448] [levelValue: 800] [[
+  Grizzly Framework 2.3.23 started in: 40ms - bound to [/0.0.0.0:8180]]]
+
+[2016-12-29T20:41:36.505+0100] [glassfish 4.1] [WARNING] [] [org.glassfish.grizzly.config.Utils] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040496505] [levelValue: 900] [[
+  Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=http-listener-2, realClassName=org.glassfish.grizzly.http2.Http2AddOn]]
+
+[2016-12-29T20:41:36.536+0100] [glassfish 4.1] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040496536] [levelValue: 800] [[
+  Grizzly Framework 2.3.23 started in: 24ms - bound to [/0.0.0.0:8181]]]
+
+[2016-12-29T20:41:36.547+0100] [glassfish 4.1] [WARNING] [] [org.glassfish.grizzly.config.Utils] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040496547] [levelValue: 900] [[
+  Instance could not be initialized. Class=interface org.glassfish.grizzly.http.server.AddOn, name=admin-listener, realClassName=org.glassfish.grizzly.http2.Http2AddOn]]
+
+[2016-12-29T20:41:36.589+0100] [glassfish 4.1] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040496589] [levelValue: 800] [[
+  Grizzly Framework 2.3.23 started in: 16ms - bound to [/0.0.0.0:8148]]]
+
+[2016-12-29T20:41:36.716+0100] [glassfish 4.1] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040496716] [levelValue: 800] [[
+  Grizzly Framework 2.3.23 started in: 3ms - bound to [/0.0.0.0:8137]]]
+
+[2016-12-29T20:41:36.717+0100] [glassfish 4.1] [INFO] [NCLS-CORE-00017] [javax.enterprise.system.core] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1483040496717] [levelValue: 800] [[
+  GlassFish Server Open Source Edition  4.1.1  (1) startup time : Felix (4.412ms), startup services(2.220ms), total(6.632ms)]]
+
+[2016-12-29T20:41:36.942+0100] [glassfish 4.1] [INFO] [jts.startup_msg] [javax.enterprise.system.core.transaction.com.sun.jts.CosTransactions] [tid: _ThreadID=17 _ThreadName=RunLevelControllerThread-1483040494512] [timeMillis: 1483040496942] [levelValue: 800] [[
+  JTS5014: Recoverable JTS instance, serverId = [100]]]
+
+[2016-12-29T20:41:37.361+0100] [glassfish 4.1] [INFO] [NCLS-JMX-00005] [javax.enterprise.system.jmx] [tid: _ThreadID=60 _ThreadName=Thread-13] [timeMillis: 1483040497361] [levelValue: 800] [[
+  JMXStartupService has started JMXConnector on JMXService URL service:jmx:rmi://tobias-IdeaPad-U430-Touch:8186/jndi/rmi://tobias-IdeaPad-U430-Touch:8186/jmxrmi]]
+
+[2016-12-29T20:41:37.644+0100] [glassfish 4.1] [INFO] [NCLS-CORE-00087] [javax.enterprise.system.core] [tid: _ThreadID=16 _ThreadName=RunLevelControllerThread-1483040494511] [timeMillis: 1483040497644] [levelValue: 800] [[
+  Grizzly Framework 2.3.23 started in: 0ms - bound to [/0.0.0.0:15776]]]
+
+[2016-12-29T20:41:37.646+0100] [glassfish 4.1] [INFO] [NCLS-BOOTSTRAP-00027] [javax.enterprise.bootstrap] [tid: _ThreadID=1 _ThreadName=main] [timeMillis: 1483040497646] [levelValue: 800] [[
+  Registered com.sun.enterprise.glassfish.bootstrap.osgi.EmbeddedOSGiGlassFishImpl@22ad1bae as OSGi service registration: org.apache.felix.framework.ServiceRegistrationImpl@a146b11.]]
+
+[2016-12-29T20:41:38.049+0100] [glassfish 4.1] [INFO] [] [] [tid: _ThreadID=13 _ThreadName=Thread-8] [timeMillis: 1483040498049] [levelValue: 800] [[
+  /home/tobias/Dokumente/cocome-cloud-jee-docker/docker/src/glassfish/glassfish4/glassfish/domains/store/autodeploy/bundles does not exist, please create it.]]
+

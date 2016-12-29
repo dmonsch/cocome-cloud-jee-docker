@@ -1,0 +1,43 @@
+#
+#Oracle Java 8 Dockerfile
+#
+# https://github.com/dockerfile/java
+# https://github.com/dockerfile/java/tree/master/oracle-java8
+#
+
+
+FROM ubuntu:16.04
+
+#install software property managemnet
+RUN apt-get update && \
+    apt-get install -y software-properties-common python-software-properties unzip yum ant sed vim netcat-openbsd
+
+# Install Java.
+RUN echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
+    add-apt-repository -y ppa:webupd8team/java && \
+    apt-get update && \
+    apt-get install -y oracle-java8-installer && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /var/cache/oracle-jdk8-installer
+
+# Set environment variables and password for user 'admin'
+ENV MD5=4e7ce65489347960e9797d2161e0ada2 \
+    JAVA_HOME=/usr/lib/jvm/java-8-oracle
+   
+# update aptitude
+RUN apt-get update
+
+#Install git
+RUN apt-get install -y git python-virtualenv
+
+#clone git project from url
+RUN git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-docker.git usr/src/
+
+
+#COPY ./src/startdomain.sh usr/src
+
+RUN rm usr/src/*.md  && \
+	rm -r usr/src/dockerimagecreator  &&\
+	ls usr/src/
+
+EXPOSE 8048, 8080, 8148, 8180, 8248, 8280, 8348, 8380, 8448, 8480
