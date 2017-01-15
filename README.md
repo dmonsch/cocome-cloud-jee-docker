@@ -74,7 +74,7 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 
 ### startdomain.sh
 - if statement at the beginning
- -> When we  restart a docker container, we only need to start the domains again (without create and set passwords etc.). We used this workaround, as docker has no command for docker start with certain script. *docker start* automatically runs the startdomain.sh within the CMD command but this will start the whole process of password setting again. So, at the beginnig of startdomain.sh we ask the container wether it already created the passwordfile (this implicates that the container was already started at least one time) or not.
+ -> When we  restart (stop and start) a docker container, we only need to start the domains again (without create and set passwords etc.). We used this workaround, as docker has no command for docker start with certain script. *docker start* automatically runs the startdomain.sh within the CMD command but this will start the whole process of password setting again. So, at the beginnig of startdomain.sh we ask the container wether it already created the passwordfile (this implicates that the container was already started at least one time) or not.
 
 - adding password files and enabling secure admin
     -> Glassfish requires an enabled secure admin when executed in a docker environment. This needs a password file added to the domains (default: no password when domains were created)
