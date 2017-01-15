@@ -1,4 +1,4 @@
-## This project is about developing a dockerfile, wich, in a first steps creates an docker image with basic functionality, and in a second step by running that image installing the latest version of the cocome project into an container and making it runable. This gives the option to try ut cocome on each computer, with docker installed, without having to proceed the installation of cocome.
+This project is about developing a dockerfile, wich, in a first steps creates an docker image with basic functionality, and in a second step by running that image installing the latest version of the cocome project into an container and making it runable. This gives the option to try ut cocome on each computer, with docker installed, without having to proceed the installation of cocome.
 
 
 
