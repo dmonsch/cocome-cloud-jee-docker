@@ -58,7 +58,6 @@ echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/
 
 #######################################################################  
 
-
 #start web domain
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile start-domain web
 
@@ -100,6 +99,20 @@ echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT enable-secure-admin
 
 #############################################################################
+
+git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-platform-migration.git usr/src/cocome
+
+git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-service-adapter.git usr/src/serviceadapter
+
+
+
+
+/usr/src/cocome/cocome-maven-project mvn -s /usr/src/cocome-maven-project-setting.xml clean compile package
+
+/usr/src/cocome/serviceadapter mvn -s /usr/src/serviceadapter-setting.xml clean compile package
+
+
+
 
 #### This part will be changed when mvn is executed ###
 #### Important: registry and adapter have to be deployed before store and enterprise (they depent on registry/adapter)
