@@ -29,6 +29,12 @@ RUN apt-get update
 #Install git
 RUN apt-get install -y git python-virtualenv
 
+# update aptitude
+RUN apt-get update
+
+#Install maven
+RUN apt-get install maven -y
+
 #clone git project from url
 RUN git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-docker.git usr/src/
 

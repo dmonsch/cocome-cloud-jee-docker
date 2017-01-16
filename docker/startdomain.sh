@@ -106,10 +106,13 @@ git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-servic
 
 
 
+cd /usr/src/cocome/serviceadapter && mvn -s /usr/src/serviceadapter-setting.xml clean package
 
-/usr/src/cocome/cocome-maven-project mvn -s /usr/src/cocome-maven-project-setting.xml clean compile package
+cd /usr/src/cocome/serviceadapter && mvn -s /usr/src/serviceadapter-setting.xml install
 
-/usr/src/cocome/serviceadapter mvn -s /usr/src/serviceadapter-setting.xml clean compile package
+cd /usr/src/cocome/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml clean package 
+
+cd /usr/src/cocome/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml install
 
 
 
@@ -119,23 +122,23 @@ git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-servic
 
 #Deploy web8048.war
 echo '######### Deploy web8048.war #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $WEB_PORT deploy --force --name WEB /usr/src/web8048.war
+#/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $WEB_PORT deploy --force --name WEB /usr/src/web8048.war
 
 #Deploy registry8448.war
 echo '######### Deploy registry8448.war #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT deploy --force --name REGISTRY /usr/src/registry8448.war
+#/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT deploy --force --name REGISTRY /usr/src/registry8448.war
 
 #Deploy adapter8248.ear
 echo '######### Deploy adapter8248.ear #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ADAPTER_PORT deploy --force --name ADAPTER /usr/src/adapter8248.ear
+#/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ADAPTER_PORT deploy --force --name ADAPTER /usr/src/adapter8248.ear
 
 #Deploy store8148.ear
 echo '######### Deploy store8148.ear #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $STORE_PORT deploy --force --name STORE /usr/src/store8148.ear
+#/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $STORE_PORT deploy --force --name STORE /usr/src/store8148.ear
 
 #Deploy enterprise8348.ear
 echo '######### Deploy enterprise8348.ear #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ENTERPRISE_PORT deploy --force --name ENTERPRISE /usr/src/enterprise8348.ear
+#/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ENTERPRISE_PORT deploy --force --name ENTERPRISE /usr/src/enterprise8348.ear
 
 
 ##############################################################################
