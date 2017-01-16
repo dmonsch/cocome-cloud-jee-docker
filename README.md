@@ -13,7 +13,7 @@ This project is about developing a dockerfile, which, in a first step creates an
 # Build and run the image
 Open the terminal within the downloaded 'docker'-folder. When executing docker build, you always need do open the console within the folder that contains the dockerfile.
 ### Docker build
-- use follwing command:  *docker build -t someName .*
+- use follwing command:  ```docker build -t someName .```
 - you can exchange 'someName' to whatever you want. This will be the image name. Very important: do not forget the fullstop after the name.
 - it takes some time when executed the first time as it needs to dowload ubuntu, java, glassfish a some other files.
 - You need to rebuild the image to get a new version of CoCoME
@@ -21,32 +21,32 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 - check if the image was created successfully by using the command *docker images*. The image name should appear under REPOSITORY.
 
 ### Docker run
-- use *docker run -d -p 8080:8080 someName* to run the image.
+- use ```docker run -d -p 8080:8080 someName``` to run the image.
 - it takes some time to start each glassfish domain, execute maven to deploy CoCoME on the domains.
-- Use the docker logs to get information about the progress. Therefore use the command *docker ps* to identify the containerID, then execute *docker logs containerID* with the actual containerID. You will notice that each domain will get started, stoped and restart. After that, you should be able to access the CoCoME UI via your [browser](http://localhost:8080/cloud-web-frontend/)
+- Use the docker logs to get information about the progress. Therefore use the command ```docker ps``` to identify the containerID, then execute ```docker logs containerID``` with the actual containerID. You will notice that each domain will get started, stoped and restart. After that, you should be able to access the CoCoME UI via your [browser](http://localhost:8080/cloud-web-frontend/)
 
 ### Docker run full access
--If you need full access to each glassfish domain use the command *docker run -d -p 8048:8048 -p 8080:8080 -p 8148:8148 -p 8180:8180 -p 8248:8248 -p 8280:8280 -p 8348:8348 -p 8380:8380  -p 8448:8448 -p 8480:8480 someName*
+- If you need full access to each glassfish domain use the command ```docker run -d -p 8048:8048 -p 8080:8080 -p 8148:8148 -p 8180:8180 -p 8248:8248 -p 8280:8280 -p 8348:8348 -p 8380:8380  -p 8448:8448 -p 8480:8480 someName```
 
 ### Deleting images and container
-- If you want to delete all containers use *docker rm -f $(docker ps -a -q)*
-- To delete all images use docker rmi -f $(docker images -q)
+- If you want to delete all containers use ```docker rm -f $(docker ps -a -q)```
+- To delete all images use ```docker rmi -f $(docker images -q)```
 
 ### Troubleshooting
  - Nothing added yet
 
 # Stop and start a container
 ###Stopping
-- run from a bash session within the container: *docker exec -it containerID /bin/bash* then just type in: *./stopdomain.sh* OR
-- use the command *docker exec containerID ./stopdomain.sh* 
+- run from a bash session within the container: ```docker exec -it containerID /bin/bash``` then just type in: ```./stopdomain.sh``` OR
+- use the command ```docker exec containerID ./stopdomain.sh``` 
   -> both commands stop the glassfish domains which leads to a docker stop, as no application is running
 ### Starting
-- use *docker ps -a* to get the containerID of the stopped container, then execute *docker start containerID*
+- use ```docker ps -a``` to get the containerID of the stopped container, then execute ```docker start containerID```
 
 # Logfiles (glassfish)
--As docker hides its image/container data, we need to access the glassfish logfiles via the web browser. Therefore the admin ports have to be exposed. This needs the docker run full access command (see above).
--access the glassfish admin console with: https://localhost:8x48 (the x needs to be replaced)
--8048: web-domain, 8148: store-domain, 8248: adapter-domain, 8348: enterprise-domain, 8448: registry-domain
+- As docker hides its image/container data, we need to access the glassfish logfiles via the web browser. Therefore the admin ports have to be exposed. This needs the docker run full access command (see above).
+- access the glassfish admin console with: https://localhost:8x48 (the x needs to be replaced)
+- 8048: web-domain, 8148: store-domain, 8248: adapter-domain, 8348: enterprise-domain, 8448: registry-domain
 - choose *server (Admin server)* > *View Log Files* or *View Raw Log*
 
 
