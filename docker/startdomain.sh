@@ -140,7 +140,7 @@ echo '######### Deploy enterprise8348.ear #########'
 
 ##############################################################################
 #restart needed because of changed attributes like password
-
+#Important notice: restart of the glassfish domains or start in general has to take playce in this order!
 echo '########## restart database ##################'
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-database 
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-database 
