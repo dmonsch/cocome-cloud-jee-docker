@@ -63,6 +63,9 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 - installing git python-virtualenv
 	-> git version that run on docker. It is used for getting the files from git into the docker; maybe not the most efficient way, but, since cocome is developed on github, its the easiest way to get the most recent version of cocome
 
+- installing maven 
+	-> cocome is created as a maven project, so, in order to install it on the glassfish server, there has to be a version of maven. 
+
 - using prepared glassfish version from github 
 	-> we decided to provide a glassfish installation with all the domains CoCoME needs instead of downloading a new version from github. For two reasons, that seems to be the best way to get a working version of CoCoMe: First, Oracle stopped the Glassfish support, so there won't be a new version anyway. Second, we need to adjust some settings via the browser, This would be, as far as we know, too complticated with console commands.
 
@@ -79,6 +82,8 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 - adding password files and enabling secure admin
     -> Glassfish requires an enabled secure admin when executed in a docker environment. This needs a password file added to the domains (default: no password when domains were created)
 
+- cloning the cocome repository 
+ -> the purpose of this project has been to create an docker file which installs the most recent version of cocome into a container. By cloning the repository within the CMD call, the cloning process starts when the container is about to be created.
 - last command in script is executed in --verbose mode
     -> Docker stops if no application is running foreground. As glassfish runs in background, the container would stop if the script is executed completely. So we decided to choose this workaround: the last domain is restarted in verbose mode, so glassfish enters the console and pretends to run foreground. Sadly there's one bad side effect: No command can be executed beyond this point. Maybe there's another solution which we did not find so far.
     
