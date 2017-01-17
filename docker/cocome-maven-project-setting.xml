@@ -9,8 +9,8 @@
 			<properties>
 				<!-- registry node deployment configuration -->
 				<logic.registry.protocol>http</logic.registry.protocol>
-				<logic.registry.domain>cocome</logic.registry.domain>
-				<logic.registry.host>192.168.48.236</logic.registry.host>
+				<logic.registry.domain>registry</logic.registry.domain>
+				<logic.registry.host>localhost</logic.registry.host>
 				<logic.registry.httpPort>8480</logic.registry.httpPort>
 				<logic.registry.adminPort>8448</logic.registry.adminPort>
 				<logic.registry.user>admin</logic.registry.user>
@@ -21,8 +21,8 @@
 				
 				<!-- store node deployment configuration -->
 				<logic.store.protocol>http</logic.store.protocol>
-				<logic.store.domain>cocome</logic.store.domain>
-				<logic.store.host>192.168.48.236</logic.store.host>
+				<logic.store.domain>store</logic.store.domain>
+				<logic.store.host>localhost</logic.store.host>
 				<logic.store.httpPort>8180</logic.store.httpPort>
 				<logic.store.adminPort>8148</logic.store.adminPort>
 				<logic.store.user>admin</logic.store.user>
@@ -33,8 +33,8 @@
 		
 				<!--  enterprise node deployment configuration -->
 				<logic.enterprise.protocol>http</logic.enterprise.protocol>
-				<logic.enterprise.domain>cocome</logic.enterprise.domain>
-				<logic.enterprise.host>192.168.48.232</logic.enterprise.host>
+				<logic.enterprise.domain>enterprise</logic.enterprise.domain>
+				<logic.enterprise.host>localhost</logic.enterprise.host>
 				<logic.enterprise.httpPort>8380</logic.enterprise.httpPort>
 				<logic.enterprise.adminPort>8348</logic.enterprise.adminPort>
 				<logic.enterprise.user>admin</logic.enterprise.user>
@@ -42,8 +42,8 @@
 				<logic.enterprise.baseDir />
 		
 				<!-- web node deployment configuration -->	
-				<web.domain>cocome</web.domain>
-				<web.host>192.168.48.206</web.host>
+				<web.domain>web</web.domain>
+				<web.host>localhost</web.host>
 				<web.httpPort>8080</web.httpPort>
 				<web.adminPort>8048</web.adminPort>
 				<web.user>admin</web.user>
@@ -51,7 +51,7 @@
 		
 				<!-- service adapter node deployment configuration -->
 				<serviceadapter.protocol>http</serviceadapter.protocol>
-				<serviceadapter.host>192.168.48.224</serviceadapter.host>
+				<serviceadapter.host>serviceadapter</serviceadapter.host>
 				<serviceadapter.httpPort>8280</serviceadapter.httpPort>
 				<serviceadapter.adminPort>8248</serviceadapter.adminPort>
 				<serviceadapter.user>admin</serviceadapter.user>
@@ -62,5 +62,5 @@
 	</profiles>
 	<activeProfiles>
 		<activeProfile>cocome-context</activeProfile>
-	</activeProfiles>
+	</activeProfiles>0
 </settings>

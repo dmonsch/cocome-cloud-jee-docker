@@ -11,8 +11,8 @@
 
 				<!-- logic node deployment configuration -->
 				<serviceadapter.protocol>http</serviceadapter.protocol>
-				<serviceadapter.domain>cocome</serviceadapter.domain>
-				<serviceadapter.host>192.168.48.224</serviceadapter.host>
+				<serviceadapter.domain>serviceadapter</serviceadapter.domain>
+				<serviceadapter.host>localhost</serviceadapter.host>
 				<serviceadapter.httpPort>8280</serviceadapter.httpPort>
 				<serviceadapter.adminPort>8248</serviceadapter.adminPort>
 				<serviceadapter.user>admin</serviceadapter.user>
