@@ -82,21 +82,21 @@ echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin create-jdbc-resource --connectionpoolid DerbyPool --host localhost --port 8248 --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile jdbc/CoCoMEDB
 
 ############################################################################
+git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-platform-migration.git usr/src/cocome
 
-#ENABLE remote access to admin console WEB domain
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $WEB_PORT enable-secure-admin
+git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-service-adapter.git usr/src/serviceadapter
 
-#ENABLE remote access to admin console STORE domain
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $STORE_PORT enable-secure-admin
 
-#ENABLE remote access to admin console ADAPTER domain
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ADAPTER_PORT enable-secure-admin
 
-#ENABLE remote access to admin console ENTERPRISE domain
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ENTERPRISE_PORT enable-secure-admin
+cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml clean compile package
 
-#ENABLE remote access to admin console REGISTRY domain
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT enable-secure-admin
+cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml install
+
+cd /usr/src/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml clean compile package 
+
+cd /usr/src/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml install
+
+
 
 #############################################################################
 
