@@ -82,47 +82,36 @@ echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin create-jdbc-resource --connectionpoolid DerbyPool --host localhost --port 8248 --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile jdbc/CoCoMEDB
 
 ############################################################################
+
+#ENABLE remote access to admin console WEB domain
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $WEB_PORT enable-secure-admin
+
+#ENABLE remote access to admin console STORE domain
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $STORE_PORT enable-secure-admin
+
+#ENABLE remote access to admin console ADAPTER domain
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ADAPTER_PORT enable-secure-admin
+
+#ENABLE remote access to admin console ENTERPRISE domain
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ENTERPRISE_PORT enable-secure-admin
+
+#ENABLE remote access to admin console REGISTRY domain
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT enable-secure-admin
+
+#############################################################################
 git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-platform-migration.git usr/src/cocome
 
 git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-service-adapter.git usr/src/serviceadapter
 
 
+cd /usr/src/cocome/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml clean compile package 
 
-cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml clean compile package
+cd /usr/src/cocome/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml install
+
+
+cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml clean compile package 
 
 cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml install
-
-cd /usr/src/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml clean compile package 
-
-cd /usr/src/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml install
-
-
-
-#############################################################################
-
-
-#### This part will be changed when mvn is executed ###
-#### Important: registry and adapter have to be deployed before store and enterprise (they depent on registry/adapter)
-
-#Deploy web8048.war
-echo '######### Deploy web8048.war #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $WEB_PORT deploy --force --name WEB /usr/src/web8048.war
-
-#Deploy registry8448.war
-echo '######### Deploy registry8448.war #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT deploy --force --name REGISTRY /usr/src/registry8448.war
-
-#Deploy adapter8248.ear
-echo '######### Deploy adapter8248.ear #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ADAPTER_PORT deploy --force --name ADAPTER /usr/src/adapter8248.ear
-
-#Deploy store8148.ear
-echo '######### Deploy store8148.ear #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $STORE_PORT deploy --force --name STORE /usr/src/store8148.ear
-
-#Deploy enterprise8348.ear
-echo '######### Deploy enterprise8348.ear #########'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ENTERPRISE_PORT deploy --force --name ENTERPRISE /usr/src/enterprise8348.ear
 
 
 ##############################################################################
