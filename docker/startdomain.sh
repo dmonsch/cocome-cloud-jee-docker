@@ -13,7 +13,7 @@ PASSWORDFILE=/usr/src/glassfish/glassfish4/glassfish/passwordfile
 if [ -f "$PASSWORDFILE" ]
 then
 	echo '##########Starting already created domains##########'
-        ./restart.sh
+        ./startafterstop.sh
         exit 0
 else
 	echo '##########creating and starting domains'
@@ -58,6 +58,7 @@ echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/
 
 #######################################################################  
 
+
 #start web domain
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile start-domain web
 
@@ -99,19 +100,29 @@ echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT enable-secure-admin
 
 #############################################################################
-git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-platform-migration.git usr/src/cocome
 
-git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-service-adapter.git usr/src/serviceadapter
+#### This part will be changed when mvn is executed ###
+#### Important: registry and adapter have to be deployed before store and enterprise (they depent on registry/adapter)
 
+#Deploy web8048.war
+echo '######### Deploy web8048.war #########'
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $WEB_PORT deploy --force --name WEB /usr/src/web8048.war
 
-cd /usr/src/cocome/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml clean compile package 
+#Deploy registry8448.war
+echo '######### Deploy registry8448.war #########'
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT deploy --force --name REGISTRY /usr/src/registry8448.war
 
-cd /usr/src/cocome/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml install
+#Deploy adapter8248.ear
+echo '######### Deploy adapter8248.ear #########'
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ADAPTER_PORT deploy --force --name ADAPTER /usr/src/adapter8248.ear
 
+#Deploy store8148.ear
+echo '######### Deploy store8148.ear #########'
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $STORE_PORT deploy --force --name STORE /usr/src/store8148.ear
 
-cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml clean compile package 
-
-cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml install
+#Deploy enterprise8348.ear
+echo '######### Deploy enterprise8348.ear #########'
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $ENTERPRISE_PORT deploy --force --name ENTERPRISE /usr/src/enterprise8348.ear
 
 
 ##############################################################################
@@ -143,6 +154,8 @@ echo '########## restart domain ENTERPRISE ##################'
 
 
 
+
+echo '####### test ######'
 # Last command was "-v" -> glassfish in verbose-mode -> registry-domain logs are printed out on console
 #->  docker does not stop the container
 # IMPORTANT:  No command will be executed after this Point!
