@@ -11,7 +11,7 @@
 
 				<!-- logic node deployment configuration -->
 				<serviceadapter.protocol>http</serviceadapter.protocol>
-				<serviceadapter.domain>serviceadapter</serviceadapter.domain>
+				<serviceadapter.domain>adapter</serviceadapter.domain>
 				<serviceadapter.host>localhost</serviceadapter.host>
 				<serviceadapter.httpPort>8280</serviceadapter.httpPort>
 				<serviceadapter.adminPort>8248</serviceadapter.adminPort>

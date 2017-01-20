@@ -13,7 +13,7 @@ PASSWORDFILE=/usr/src/glassfish/glassfish4/glassfish/passwordfile
 if [ -f "$PASSWORDFILE" ]
 then
 	echo '##########Starting already created domains##########'
-        ./startafterstop.sh
+        ./restart.sh
         exit 0
 else
 	echo '##########creating and starting domains'
@@ -143,8 +143,6 @@ echo '########## restart domain ENTERPRISE ##################'
 
 
 
-
-echo '####### test ######'
 # Last command was "-v" -> glassfish in verbose-mode -> registry-domain logs are printed out on console
 #->  docker does not stop the container
 # IMPORTANT:  No command will be executed after this Point!

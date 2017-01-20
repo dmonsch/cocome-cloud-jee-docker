@@ -16,14 +16,6 @@ RUN apt-get update && \
      apt-get install -y oracle-java8-installer && \
      rm -rf /var/lib/apt/lists/* && \
 	 rm -rf /var/cache/oracle-jdk8-installer
-#RUN apt-get update && \
-#    apt-get upgrade -y && \
-#    apt-get install -y  software-properties-common && \
-#    add-apt-repository ppa:webupd8team/java -y && \
-#    apt-get update && \
-#    echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections && \
-#    apt-get install -y oracle-java7-installer && \
-#    apt-get clean
 
 
 
@@ -31,11 +23,6 @@ RUN apt-get update && \
 ENV MD5=4e7ce65489347960e9797d2161e0ada2 \
     JAVA_HOME=/usr/lib/jvm/java-8-oracle \
 	PASSWORD=password
-# Set environment variables
-#ENV MD5=4e7ce65489347960e9797d2161e0ada2 \
-#    JAVA_HOME=/usr/lib/jvm/java-7-oracle \
-#    PASSWORD=password
-
    
 # update aptitude
 RUN apt-get update
@@ -52,33 +39,23 @@ RUN apt-get install maven -y
 #clone git project from url
 RUN git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-docker.git usr/src/
 
-#path set so startdomain.sh is less complicatet #not possible -> passwordfile has to be created
-#ENV PATH /usr/src/glassfish/glassfish4/glassfish/bin:$PATH
 
 #dos2unix converts windowsformat line endings to unixformat as git sometimes changes them to windowsFormat
 RUN apt-get update && apt-get install -y dos2unix
+
 ADD startdomain.sh /startdomain.sh 
 ADD stopdomain.sh /stopdomain.sh  
-ADD startafterstop.sh /startafterstop.sh
+ADD restart.sh /restart.sh
 ADD cocome-maven-project-setting.xml /usr/src/cocome-maven-project-setting.xml
 ADD serviceadapter-settings.xml /usr/src/serviceadapter-settings.xml
 
 #changeFromat and uninstall dos2unix
 RUN dos2unix /startdomain.sh && \
-    dos2unix /startafterstop.sh && \
+    dos2unix /restart.sh && \
     dos2unix /stopdomain.sh && apt-get --purge remove -y dos2unix && rm -rf /var/lib/apt/lists/
 
 #Make the scripts executable 
 RUN chmod +x /*.sh
-
-
-
-ADD web8048.war   \
- 	store8148.ear   \
- 	adapter8248.ear  \
- 	enterprise8348.ear   \
-	registry8448.war /usr/src/ 
-
 
 RUN rm usr/src/*.md  && \
 	rm -r usr/src/docker && \

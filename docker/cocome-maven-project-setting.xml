@@ -51,7 +51,7 @@
 		
 				<!-- service adapter node deployment configuration -->
 				<serviceadapter.protocol>http</serviceadapter.protocol>
-				<serviceadapter.host>serviceadapter</serviceadapter.host>
+				<serviceadapter.host>localhost</serviceadapter.host>
 				<serviceadapter.httpPort>8280</serviceadapter.httpPort>
 				<serviceadapter.adminPort>8248</serviceadapter.adminPort>
 				<serviceadapter.user>admin</serviceadapter.user>

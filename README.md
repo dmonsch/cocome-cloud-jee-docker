@@ -23,7 +23,7 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 ### Docker run
 - use ```docker run -d -p 8080:8080 someName``` to run the image.
 - it takes some time to start each glassfish domain, execute maven to deploy CoCoME on the domains.
-- Use the docker logs to get information about the progress. Therefore use the command ```docker ps``` to identify the containerID, then execute ```docker logs containerID``` with the actual containerID. You will notice that each domain will get started, stoped and restart. After that, you should be able to access the CoCoME UI via your [browser](http://localhost:8080/cloud-web-frontend/)
+- Use the docker logs to get information about the progress. Therefore use the command ```docker ps``` to identify the containerID, then execute ```docker logs containerID -f``` with the actual containerID. (You can exit the log-view with Ctrl-C). You will notice that each domain will get started, stoped and restart. After that, you should be able to access the CoCoME UI via your [browser](http://localhost:8080/cloud-web-frontend/)
 
 ### Docker run full access
 - If you need full access to each glassfish domain use the command ```docker run -d -p 8048:8048 -p 8080:8080 -p 8148:8148 -p 8180:8180 -p 8248:8248 -p 8280:8280 -p 8348:8348 -p 8380:8380  -p 8448:8448 -p 8480:8480 someName```
@@ -87,12 +87,13 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 - last command in script is executed in --verbose mode
     -> Docker stops if no application is running foreground. As glassfish runs in background, the container would stop if the script is executed completely. So we decided to choose this workaround: the last domain is restarted in verbose mode, so glassfish enters the console and pretends to run foreground. Sadly there's one bad side effect: No command can be executed beyond this point. Maybe there's another solution which we did not find so far.
     
-### startafterstop.sh
+### restart.sh
 -this script gets executed only if the glassfish setup (password, enabling secure-admin etc) was done before. In other words, this script is used when we restart a stopped container. 
     
 # Problems which are not resolved so far
 
 - So far, it is possible to restart a container when it got stopped correctly. But for some reason, CoCoME doesn't work anymore. This actually happened before, when we stopped and started glassfish within eclipse. To solve this problem, we did mvn clean post-clean install and mvn package again, deleted some cache files and undeployed the .war/.ear files by hand. This will be impossible to do within a console so maybe restarting a container with CoCoME will not work -> *docker run...* will have to be executed again, which also causes a loss of the database.
+-> Problem found: the glassfish domains have to be started in a preassigned order:  start database, start registry, start adapter, start the rest
 	
 	
 
