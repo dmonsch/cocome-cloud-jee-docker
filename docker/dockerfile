@@ -46,12 +46,14 @@ RUN apt-get update && apt-get install -y dos2unix
 ADD startdomain.sh /startdomain.sh 
 ADD stopdomain.sh /stopdomain.sh  
 ADD restart.sh /restart.sh
+ADD pullChanges.sh /pullChanges.sh
 ADD cocome-maven-project-setting.xml /usr/src/cocome-maven-project-setting.xml
 ADD serviceadapter-settings.xml /usr/src/serviceadapter-settings.xml
 
 #changeFromat and uninstall dos2unix
 RUN dos2unix /startdomain.sh && \
     dos2unix /restart.sh && \
+    dos2unix /pullChanges.sh && \
     dos2unix /stopdomain.sh && apt-get --purge remove -y dos2unix && rm -rf /var/lib/apt/lists/
 
 #Make the scripts executable 
