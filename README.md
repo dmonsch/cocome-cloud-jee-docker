@@ -48,6 +48,9 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 - 8048: web-domain, 8148: store-domain, 8248: adapter-domain, 8348: enterprise-domain, 8448: registry-domain
 - choose *server (Admin server)* > *View Log Files* or *View Raw Log*
 
+# Pull recent Changes inside an running Container 
+- While cocome container is running, run from a terminal: ```docker exec -it containerID /bin/bash``` then type in:  ```./pullChanges.sh```
+- in follow, u have to agree all requests by entering ```y```
 
 # Implementation details & reasons
 
@@ -89,7 +92,11 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
     -> Docker stops if no application is running foreground. As glassfish runs in background, the container would stop if the script is executed completely. So we decided to choose this workaround: the last domain is restarted in verbose mode, so glassfish enters the console and pretends to run foreground. Sadly there's one bad side effect: No command can be executed beyond this point. Maybe there's another solution which we did not find so far.
     
 ### restart.sh
--this script gets executed only if the glassfish setup (password, enabling secure-admin etc) was done before. In other words, this script is used when we restart a stopped container. 
+- this script gets executed only if the glassfish setup (password, enabling secure-admin etc) was done before. In other words, this script is used when we restart a stopped container. 
+
+### pullChanges.sh
+- this script runs a ```git pull```, then a```mvn clean post-clean install``` to integrate changes
+
     
 # Problems which are not resolved so far
 
