@@ -25,13 +25,14 @@ fi
 #Touch creates two new files
 touch /usr/src/glassfish/glassfish4/glassfish/passwordfileToChange
 touch /usr/src/glassfish/glassfish4/glassfish/passwordfile
+echo 'MACHT ER ES???????????????????????????????????????????????????????????'
 
 #Create File to change password (this is a work-around, as we use existing domains!)
 echo "AS_ADMIN_PASSWORD=" > /usr/src/glassfish/glassfish4/glassfish/passwordfileToChange
-echo "AS_ADMIN_NEWPASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/passwordfileToChange
+echo "AS_ADMIN_NEWPASSWORD=password" >> /usr/src/glassfish/glassfish4/glassfish/passwordfileToChange
 
 #Create password file 
-echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/passwordfile
+echo "AS_ADMIN_PASSWORD=password" >> /usr/src/glassfish/glassfish4/glassfish/passwordfile
 
 ############################################################################
 
@@ -140,17 +141,21 @@ echo '########## restart domain ADAPTER ##################'
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain adapter
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain  adapter
 
-echo '########## restart domain WEB ##################'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain web
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain  web
+echo '########## restart domain ENTERPRISE ##################'
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain enterprise
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain enterprise
 
 echo '########## restart domain STORE ##################'
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain store
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain  store
 
-echo '########## restart domain ENTERPRISE ##################'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain enterprise
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain -v enterprise
+echo '########## restart domain WEB ##################'
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain web
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain -v web
+
+
+
+
 
 
 

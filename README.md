@@ -1,6 +1,8 @@
 This project is about developing a dockerfile, which, in a first step creates an docker image with basic functionality. In a second step, while running that image, it installs the latest version of the cocome project onto an container and makes it runable. This gives the option to try out cocome on each computer, with docker installed, without having to proceed the installation of cocome.
 
-
+# This is a "Without-Maven-Version"
+The aim of this project is to get a running CoCoME inside a container as fast as possible. Therefore, we disclaimed using the newest version of CoCoME (using Git). The .war/.jar/.ear - files that get deployed on the glassfish servers are part of the git repository we are talking about in this README.
+To update those files, you need to install CoCoME locally, run maven and exchange them by hand. For further information, please consult UpdateCoCoME.md.
 # Prerequisites
 ### Docker installation
 - install Docker on your linux system. Use this [guide](https://docs.docker.com/engine/installation/linux/ubuntulinux/) for the installation.
@@ -15,9 +17,7 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 ### Docker build
 - use follwing command:  ```docker build -t someName .```
 - you can exchange 'someName' to whatever you want. This will be the image name. Very important: do not forget the fullstop after the name.
-- it takes some time when executed the first time as it needs to dowload ubuntu, java, glassfish a some other files.
-- You need to rebuild the image to get a new version of CoCoME
-- TODO: Auto-Update of git?!  Tobi?
+- it takes some time when executed the first time as it needs to dowload java, glassfish a some other files.
 - check if the image was created successfully by using the command *docker images*. The image name should appear under REPOSITORY.
 
 ### Docker run
@@ -54,17 +54,11 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 
 ### Dockerfile
 
-- starting with image ubuntu:16.04
-	-> using the ubuntu image allows to use the Advanved Packaging Tool (apt) from ubuntu for installing required programs, such as git and maven
+- starting with image java:8-jdk
+	-> using java reduces the size of the image and as a consequence, the build time.
 
-- using java8 installer
-	-> cocome is a java based project, so java is necessary to execute commands like mvn install
-
-- installing git python-virtualenv
+- installing git
 	-> git version that run on docker. It is used for getting the files from git into the docker; maybe not the most efficient way, but, since cocome is developed on github, its the easiest way to get the most recent version of cocome
-
-- installing maven 
-	-> cocome is created as a maven project, so, in order to install it on the glassfish server, there has to be a version of maven. 
 
 - using prepared glassfish version from github 
 	-> we decided to provide a glassfish installation with all the domains CoCoME needs instead of downloading a new version from github. For two reasons, that seems to be the best way to get a working version of CoCoMe: First, Oracle stopped the Glassfish support, so there won't be a new version anyway. Second, we need to adjust some settings via the browser, This would be, as far as we know, too complticated with console commands.
@@ -91,7 +85,9 @@ Open the terminal within the downloaded 'docker'-folder. When executing docker b
 -this script gets executed only if the glassfish setup (password, enabling secure-admin etc) was done before. In other words, this script is used when we restart a stopped container. 
     
 # Problems which are not resolved so far
+- nothing
 
+# Solved Problems
 - So far, it is possible to restart a container when it got stopped correctly. But for some reason, CoCoME doesn't work anymore. This actually happened before, when we stopped and started glassfish within eclipse. To solve this problem, we did mvn clean post-clean install and mvn package again, deleted some cache files and undeployed the .war/.ear files by hand. This will be impossible to do within a console so maybe restarting a container with CoCoME will not work -> *docker run...* will have to be executed again, which also causes a loss of the database.
 -> Problem found: the glassfish domains have to be started in a preassigned order:  start database, start registry, start adapter, start the rest
 	
