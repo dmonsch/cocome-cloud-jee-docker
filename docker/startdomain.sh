@@ -53,7 +53,7 @@ echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/
 ############################################################################
 
 #create database (default database DERBY is created when 'start-database' is executed
-/usr/src/glassfish/glassfish4/bin/asadmin start-database 
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-database 
 # --> this automatically creates a default jdbc-pool (DerbyPool)
 
 #######################################################################  
