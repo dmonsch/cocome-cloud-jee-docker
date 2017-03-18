@@ -42,7 +42,10 @@ RUN apt-get update && apt-get install -y dos2unix &&\
 #Make the scripts executable 
 RUN chmod +x /*.sh
 
+Run /startdomain.sh &&\
+	/stopdomain.sh
+
 # 4848 (administration), 8080 (HTTP listener), 8181 (HTTPS listener)
 EXPOSE 8048 8080 8081 8148 8180 8181 8248 8280 8281 8348 8380 8381 8448 8480 8481
 
-CMD ["/startdomain.sh"]
+CMD ["/restart.sh"]

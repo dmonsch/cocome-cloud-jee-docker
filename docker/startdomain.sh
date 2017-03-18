@@ -142,7 +142,7 @@ echo '########## restart domain STORE ##################'
 
 echo '########## restart domain ENTERPRISE ##################'
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain enterprise
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain -v enterprise
+/usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain enterprise
 
 
 
