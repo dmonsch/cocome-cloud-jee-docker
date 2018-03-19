@@ -31,14 +31,14 @@
 \maketitle
 \section{Docker}\label{docker}
 Docker is an open source software using container technology to isolate applications on a system. \\
-	An advantage of using this technology is the higher efficiency in the consumption of hardware resources by running independent containers on a single Linux Kernel and avoiding the overhead of maintaining virtual machines. Therefore, this technology provides higher efficiency compared to similar solutions using virtual machines.
-	Independent containers run on a single Linux Kernel avoiding the overhead of maintaining virtual machines. Therefore, this technology provides higher efficiency compared to VMs, as it does not consume as much hardware resources. Furthermore, there is no need to manually install software that is necessary to run the application, as the Dockerfile specifies the environment in which the application is able to run. \\
-	Docker builds a so-called \textit{Image} by using a Dockerfile. Starting from an empty server environment, Docker executes the commands of the Dockerfile to set up the docker container, the application environment and the application itself.\\
-	Docker can be forced to download the newest  software version, if available, when building a new Image. This is usually done in the Dockerfile specification. As a consequence, the application itself and the software it uses will always be up to date.\\
-	The docker environment is suitable for efficiently running various containers at a time. It is therefore predestined for Microservice-based applications, as the different Services can be deployed independently in a container. 
+The big advantage of using this technology is a higher efficiency regarding hardware consumption. This is achieved by running independent containers on a single Linux Kernel instead of using several virtual machines to separate the applications.
+ Furthermore, there is no need to manually install software that is necessary to run the application, as the so-called Dockerfile specifies the environment in which the application is able to run. \\
+Docker builds an \textit{Image} by using a Dockerfile. Starting from an empty server environment, Docker executes the commands of the Dockerfile to set up the docker container, the application environment and the application itself.\\
+Docker can be forced to download the newest software version, if available, when building a new \textit{Image}. This is usually done in the Dockerfile specification, too. As a consequence, the application itself and the software it uses are always up to date.\\
+The docker environment is suitable for efficiently running various containers at a time. It is therefore predestined for Microservice-based applications, as the various Services can be deployed independently in different containers. 
 
 \section{Docker for CoCoME}
-	As described in the CoCoME installation guide, CoCoME needs a bunch of software that has to be installed manually. This platform dependant software needs to be kept up to date, no matter on what kind of system it will be deployed. The basic idea behind \textit{Docker for CoCoME} is to create a platform independent version which does not require any manual installation by a person apart from Docker itself. 
+	As described in the CoCoME installation guide, CoCoME needs a bunch of software that has to be installed manually. This platform dependant software needs to be kept up to date, no matter on what kind of system it is deployed. The basic idea behind \textit{Docker for CoCoME} is to create a platform independent version which does not require any manual installation by a person apart from Docker itself. 
 	
 
 \section{Evolution Scenario}
@@ -52,7 +52,7 @@ Docker is an open source software using container technology to isolate applicat
 
 
 \section{Description}\label{description}
-	As shown in figure \ref*{techStack} the changes are affecting the technology stack by adding additional layers. More detailed, the given CoCoME Stack is moved into the Docker Deamon, which runs a Linux distribution.As mentioned before, Glassfish and the JVM are still part of the CoCoME Stack.
+	As shown in Fig. \ref*{techStack}, the changes are affecting the technology stack by adding additional layers. More detailed, the given CoCoME Stack is moved into the Docker Deamon, which runs a Linux distribution. As mentioned before, Glassfish and the JVM are still part of the CoCoME Stack.
 	\\
 \begin{figure}[H]
 	\centering
@@ -78,7 +78,7 @@ Docker is an open source software using container technology to isolate applicat
 	\label{Deploym_CoCoME}
 \end{figure}
 
-	As shown in Fig. \ref*{Deploym_CoCoME} the docker Container contains five different Glassfish servers. In particular they are called \textit{WEB}, \textit{ENTERPRISE}, \textit{STORE}, \textit{REGISTRY} and \textit{ADAPTER} and correspond to the recommendations given by the CoCoME deployment setup. By default, Glassfish provides a Derby DB that is connected to the server Adapter using Java Database Connectivity (JDBS) interface.\\
+	As demonstrated in Fig. \ref*{Deploym_CoCoME} the Docker Container contains five different Glassfish servers. In particular they are called \textit{WEB}, \textit{ENTERPRISE}, \textit{STORE}, \textit{REGISTRY} and \textit{ADAPTER} and correspond to the recommendations given by the CoCoME deployment setup. By default, Glassfish provides a Derby DB that is connected to the \textit{Service Adapter} using Java Database Connectivity interface (JDBS).\\
 	As mentioned before, CoCoME is deployed inside the docker container on the same way it is usually deployed. This means the Maven generated archive files \textit{cloud-web-frontend},\textit{enterprise-logic-ear},\textit{store-logic-ear}\textit{cloud-registry-sevice} and \textit{service-adapter-ear} are deployed to the servers with the following assignment:
 	
 	\begin{figure}[H]
