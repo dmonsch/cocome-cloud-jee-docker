@@ -3,18 +3,22 @@
 \contentsline {section}{\numberline {1}Introduction}{3}{section.1.1}
 \contentsline {section}{\numberline {2}CoCoME Plattform Overview}{4}{section.1.2}
 \contentsline {section}{\numberline {3}Evolution Subject}{5}{section.1.3}
-\contentsline {section}{\numberline {4}Evolution Scenario}{6}{section.1.4}
-\contentsline {subsection}{\numberline {4.1}Mobil App}{6}{subsection.1.4.1}
-\contentsline {subsection}{\numberline {4.2}Docker}{6}{subsection.1.4.2}
-\contentsline {subsection}{\numberline {4.3}Microservices}{6}{subsection.1.4.3}
-\contentsline {subsubsection}{\numberline {4.3.1}Products}{6}{subsubsection.1.4.3.1}
-\contentsline {subsubsection}{\numberline {4.3.2}Stores}{6}{subsubsection.1.4.3.2}
-\contentsline {subsubsection}{\numberline {4.3.3}Enterprise}{6}{subsubsection.1.4.3.3}
-\contentsline {subsubsection}{\numberline {4.3.4}Reports}{6}{subsubsection.1.4.3.4}
+\contentsline {subsection}{\numberline {3.1}Hybrid Cloud-based Variant}{5}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {3.2}Microservice-based Variant}{5}{subsection.1.3.2}
+\contentsline {section}{\numberline {4}Evolution Scenarios}{6}{section.1.4}
+\contentsline {subsection}{\numberline {4.1}Evolution Scenarios of the Hybrid Cloud-based Variant}{6}{subsection.1.4.1}
+\contentsline {subsubsection}{\numberline {4.1.1}Setting up a Docker environment}{6}{subsubsection.1.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.2}Adding a Mobile App}{6}{subsubsection.1.4.1.2}
+\contentsline {subsection}{\numberline {4.2}Evolution Scenarios of the Microservice-based Variant}{6}{subsection.1.4.2}
+\contentsline {subsubsection}{\numberline {4.2.1}Defining different Microservices}{6}{subsubsection.1.4.2.1}
 \contentsline {section}{\numberline {5}Design Details for Evolution Scenarios}{7}{section.1.5}
-\contentsline {subsection}{\numberline {5.1}Design\_Details mobile app}{7}{subsection.1.5.1}
-\contentsline {subsection}{\numberline {5.2}Docker}{7}{subsection.1.5.2}
+\contentsline {subsection}{\numberline {5.1}Design Decisions for the Mobile App}{7}{subsection.1.5.1}
+\contentsline {subsection}{\numberline {5.2}Setting up a Docker environment}{7}{subsection.1.5.2}
 \contentsline {subsection}{\numberline {5.3}Microservices}{7}{subsection.1.5.3}
+\contentsline {subsubsection}{\numberline {5.3.1}Products}{7}{subsubsection.1.5.3.1}
+\contentsline {subsubsection}{\numberline {5.3.2}Stores}{7}{subsubsection.1.5.3.2}
+\contentsline {subsubsection}{\numberline {5.3.3}Enterprise}{7}{subsubsection.1.5.3.3}
+\contentsline {subsubsection}{\numberline {5.3.4}Reports}{7}{subsubsection.1.5.3.4}
 \contentsline {section}{\numberline {6}Life-Cycle}{8}{section.1.6}
 \contentsline {section}{\numberline {7}Implementation of Evolution Scenarios}{9}{section.1.7}
 \contentsline {section}{\numberline {8}Conclusion}{10}{section.1.8}

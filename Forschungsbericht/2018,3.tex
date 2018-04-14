@@ -19,6 +19,7 @@
 \usepackage{hyperref}
 \usepackage{float}
 
+
 \newcommand{\nocontentsline}[3]{}
 \newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
 
@@ -42,4 +43,10 @@
 \include{texfiles/Life-Cycle}
 \include{texfiles/Implementation_of_Evolution_Scenarios}
 \include{texfiles/Conclusion}
+
+\newpage
+
+\bibliographystyle{itmalpha}
+% TODO: Ändern der folgenden Zeile, damit die .bib-Datei gefunden wird
+\bibliography{literatur}
 \end{document}
