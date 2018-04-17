@@ -68,12 +68,14 @@
 	In contrast, the second version only  pulls a prefabricated version of CoCoME from GitHub. Therefore, pulling the source code up to building the project is skipped. As a consequence, Maven does not have to be included in the technology stack. Solely, deploying CoCoME on the glassfish server is necessary.\\
 	This reduces the deployment time to a few minutes but has a disadvantage: The prefabricated version is updated manually. Therefore, it is sometime not the most recent version.\\
 	By providing both, a fast deploying version and a current version, the user can choose whats the best for its situation.
-\begin{figure}[H]
+
+\begin{figure}[h]
 	\centering
 	\includegraphics[width = 0.9\textwidth]{img/docker_Container_Deployment.png}
 	\caption{Deployment diagram CoCoME}
 	\label{Deploym_CoCoME}
 \end{figure}
+
 	As shown above in figure \ref*{Deploym_CoCoME} the docker Container contains five different Glassfish servers. In particular they are called \textit{WEB}, \textit{ENTERPRISE}, \textit{STORE}, \textit{REGISTRY} and \textit{ADAPTER} and correspond to the given by the CoCoME deplyoment setup. By default, Glassfish provides a Derby DB that is connected to the server Adapter using Java Database Conectivity (JDBS) interface.\\
 	As mentioned before, CoCoME is deployed inside the docker container on the same way it is usually deployed. This means the maven generated archive files \textit{cloud-web-frontend},\textit{enterprise-logic-ear},\textit{store-logic-ear}\textit{cloud-registry-sevice} and \textit{service-adapter-ear} are deployed to the servers with the following assignment:
 	\begin{figure}[H]
