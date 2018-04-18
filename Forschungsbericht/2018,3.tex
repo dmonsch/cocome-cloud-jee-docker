@@ -1,0 +1,52 @@
+\documentclass[runningheads]{llncs}
+
+%---- Sonderzeichen-------%
+\usepackage[english]{babel}
+%---- Codierung----%
+\usepackage[latin1]{inputenc}	% for Unix and Windows
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{llncsdoc}
+%----- Mathematischer Zeichenvorrat---%
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{enumerate}
+% fuer die aktuelle Zeit
+\usepackage{scrtime}
+\usepackage{listings}
+\usepackage{subfigure}
+\usepackage{hyperref}
+\usepackage{float}
+
+
+\newcommand{\nocontentsline}[3]{}
+\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\title{The CoCoME Platform for Collaborative Empirical Research on Information System Evolution}
+\author{Robert Heinrich, Niko Benkler, Tobias Haberg}%TODO anpassen
+\institute{Institute for Program Structures and Data Organization}
+
+\begin{document}
+\tocless\maketitle	
+	
+\tableofcontents
+
+\include{texfiles/Introduction}
+\include{texfiles/CoCoME_Platform_Overview}
+\include{texfiles/Evolution_Subject}
+\include{texfiles/Evolution_Scenarios}
+\include{texfiles/Design_Details_for_Evolution_Scenarios}
+\include{texfiles/Life-Cycle}
+\include{texfiles/Implementation_of_Evolution_Scenarios}
+\include{texfiles/Conclusion}
+
+\newpage
+
+\bibliographystyle{itmalpha}
+% TODO: Ändern der folgenden Zeile, damit die .bib-Datei gefunden wird
+\bibliography{literatur}
+\end{document}

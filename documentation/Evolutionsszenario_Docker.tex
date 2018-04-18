@@ -65,11 +65,10 @@ The docker environment is suitable for efficiently running various containers at
 	Git has two purposes: On the one hand it is used to download the most recent version of CoCoME. On the other hand, it is used to download a prefabricated version of Glassfish that already includes domains and other adjustments required for CoCoME. Java is required by Glassfish and CoCoME as they need the Java Virtual Machine. Maven is needed to deploy the latest version of CoCoME onto the provided Glassfish servers.
 
 \section{Deployment}
-	During the development, it was decided to implement and to provide two different versions. The first version always pulls the most recent CoCoME source code from GitHub, downloads the entire dependencies with Maven, compiles and builds the project and finally, deploys CoCoME on the Glassfish servers. As a consequence. creating and starting a Docker Container takes about one hour.
-	In contrast, the second version only  pulls a prefabricated version of CoCoME from GitHub. Therefore, pulling the source code up to building the project is skipped. As a consequence, Maven does not have to be included in the technology stack. Solely, deploying CoCoME on the Glassfish server is necessary.\\
-	This reduces the deployment time to a few minutes but has a disadvantage: The prefabricated version is updated manually. Therefore, it is sometime not the most recent version.
-	By providing both, a fast deploying version and a current version, the user can choose what's the best for its situation.
-	
+	During the development, it was decided to implement and to provide two different versions. The first version always pulls the most recent CoCoME source code from GitHub, downloads the entire dependencies with maven, compiles and builds the project and finally, deploys CoCoME on the Glassfish servers. As a consequence, creating and starting a Docker Container takes about one hour.\\
+	In contrast, the second version only  pulls a prefabricated version of CoCoME from GitHub. Therefore, pulling the source code up to building the project is skipped. As a consequence, Maven does not have to be included in the technology stack. Solely, deploying CoCoME on the glassfish server is necessary.\\
+	This reduces the deployment time to a few minutes but has a disadvantage: The prefabricated version is updated manually. Therefore, it is sometime not the most recent version.\\
+	By providing both, a fast deploying version and a current version, the user can choose whats the best for its situation.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width = 0.9
@@ -77,10 +76,8 @@ The docker environment is suitable for efficiently running various containers at
 	\caption{Deployment diagram CoCoME}
 	\label{Deploym_CoCoME}
 \end{figure}
-
-	As demonstrated in Fig. \ref*{Deploym_CoCoME} the Docker Container contains five different Glassfish servers. In particular they are called \textit{WEB}, \textit{ENTERPRISE}, \textit{STORE}, \textit{REGISTRY} and \textit{ADAPTER} and correspond to the recommendations given by the CoCoME deployment setup. By default, Glassfish provides a Derby DB that is connected to the \textit{Service Adapter} using Java Database Connectivity interface (JDBS).\\
-	As mentioned before, CoCoME is deployed inside the docker container on the same way it is usually deployed. This means the Maven generated archive files \textit{cloud-web-frontend},\textit{enterprise-logic-ear},\textit{store-logic-ear}\textit{cloud-registry-sevice} and \textit{service-adapter-ear} are deployed to the servers with the following assignment:
-	
+As shown above in figure \ref*{Deploym_CoCoME} the docker Container contains five different Glassfish servers. In particular they are called \textit{WEB}, \textit{ENTERPRISE}, \textit{STORE}, \textit{REGISTRY} and \textit{ADAPTER} and correspond to the given by the CoCoME deplyoment setup. By default, Glassfish provides a Derby DB that is connected to the server Adapter using Java Database Conectivity (JDBS) interface.\\
+	As mentioned before, CoCoME is deployed inside the docker container on the same way it is usually deployed. This means the maven generated archive files \textit{cloud-web-frontend},\textit{enterprise-logic-ear},\textit{store-logic-ear}\textit{cloud-registry-sevice} and \textit{service-adapter-ear} are deployed to the servers with the following assignment:
 	\begin{figure}[H]
 		\centering
 		\begin{tabular}{p{0.25\textwidth}|p{0.01\textwidth}p{0.25\textwidth}}
