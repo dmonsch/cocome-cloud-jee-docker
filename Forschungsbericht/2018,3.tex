@@ -1,52 +1,86 @@
-\documentclass[runningheads]{llncs}
 
-%---- Sonderzeichen-------%
-\usepackage[english]{babel}
-%---- Codierung----%
-\usepackage[latin1]{inputenc}	% for Unix and Windows
+%% F?r die endg?ltige Version von ``draft'' auf ``final'' umstellen
+\documentclass[12pt,headsepline,twoside,final]{scrreprt}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{graphicx}
-\usepackage{url}
-\usepackage{llncsdoc}
-%----- Mathematischer Zeichenvorrat---%
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{enumerate}
-% fuer die aktuelle Zeit
-\usepackage{scrtime}
-\usepackage{listings}
+
+
+\usepackage{templates/kitreport}
+\usepackage{templates/listings}
+\usepackage{templates/tikzkit}
+\usepackage{templates/tikzuml}
+\usepackage{import}
+\usepackage{xspace}
+
+\usepackage{wrapfig}
 \usepackage{subfigure}
-\usepackage{hyperref}
-\usepackage{float}
+\usepackage{rotating}
+\usepackage{enumitem}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+\newcommand{\CoCoME}{\mbox{CoCoME}\xspace}
+\newcommand{\CoCoMEP}{\mbox{CoCoMEP}\xspace}
+\newcommand{\textcode}[1]{\textsf{\footnotesize #1}}
 
 
-\newcommand{\nocontentsline}[3]{}
-\newcommand{\tocless}[2]{\bgroup\let\addcontentsline=\nocontentsline#1{#2}\egroup}
+%Draft Watermark
+\usepackage{draftwatermark}
+\SetWatermarkLightness{0.95}
 
-\setcounter{tocdepth}{3}
-\setcounter{secnumdepth}{3}
+\lstset{numberstyle=\small\ttfamily\color{gray},numbers=left, numbersep=1.5ex}
 
-\title{The CoCoME Platform for Collaborative Empirical Research on Information System Evolution}
-\author{Robert Heinrich, Niko Benkler, Tobias Haberg}%TODO anpassen
-\institute{Institute for Program Structures and Data Organization}
+%Algorithms
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
+% Document ------------------------------------------------------------------
 \begin{document}
-\tocless\maketitle	
+	\setpdf
 	
-\tableofcontents
-
-\include{texfiles/Introduction}
-\include{texfiles/CoCoME_Platform_Overview}
-\include{texfiles/Evolution_Subject}
-\include{texfiles/Evolution_Scenarios}
-\include{texfiles/Design_Details_for_Evolution_Scenarios}
-\include{texfiles/Life-Cycle}
-\include{texfiles/Implementation_of_Evolution_Scenarios}
-\include{texfiles/Conclusion}
-
-\newpage
-
-\bibliographystyle{itmalpha}
-% TODO: Ändern der folgenden Zeile, damit die .bib-Datei gefunden wird
-\bibliography{literatur}
+	\setcounter{secnumdepth}{3}
+	
+	\title{The CoCoME Platform for \linebreak Collaborative Empirical Research on Information System Evolution} 
+	\subtitle{Technical Report}
+	
+	\author{Robert Heinrich, Niko Benkler, Tobias Ha{\ss}berg, Ralf Reussner}
+	%\institute{Institute for Program Structures and Data Organization}
+	
+	\date{\today}
+	
+	
+	
+	%% \ThisCenterWallPaper{1}{templates/title-background.pdf}
+	\maketitle
+	\clearpage
+	
+	\tableofcontents
+	\clearpage
+	
+	\listoffigures
+	\clearpage
+	
+	%\listoftodos
+	%\clearpage
+	
+	% Text ----------------------------------------------------------------------
+	
+	\input{texfiles/Introduction.tex}
+	
+	\input{texfiles/Evolution_Scenarios.tex}
+	
+	\input{texfiles/Design_Details_for_Evolution_Scenarios.tex}
+	
+	\input{texfiles/Implementation_of_Evolution_Scenarios.tex}
+	
+	\input{texfiles/Conclusion.tex}
+	
+	
+	%
+	% ---- Bibliography ----
+	%
+	\bibliographystyle{abbrv}
+	\bibliography{literatur}
+	
+	\sloppy
 \end{document}
