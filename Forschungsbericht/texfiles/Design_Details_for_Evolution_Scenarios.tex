@@ -1,15 +1,107 @@
 \chapter{Design Details for Evolution Scenarios}
 %TODO "describes the adaptive evolution scenari of.." changed to "changes in "
 In this chapter we provide the detailed design documentation for each of the evolution scenarios
-introduced in the prior section. Sec. \ref{App} sketches the design decision for the Mobile App that provides a second sales channel next to the existing Pick-up Shop. Sec. \ref{Docker} describes the adaptive cahnges of setting up a Docker environment to simplify the update process. They are both based on, or at least use the Hybrid Cloud-based Variant of CoCoME \cite{SWB-469002735}. In contrast, Sec. \ref{MS} provides a detailed design documentation of a new architectural version of CoCoME. This perfective evolution scenario is realized based on the Microservice idea.
+introduced in the prior section. Sec. \ref{App} sketches the design decision for the Mobile App that provides a second sales channel next to the existing Pick-up Shop. Sec. \ref{Docker} describes the adaptive changes of setting up a Docker environment to simplify the update process. They are both based on, or at least use the Hybrid Cloud-based Variant of CoCoME \cite{SWB-469002735}. In contrast, Sec. \ref{MS} provides a detailed design documentation of a new architectural version of CoCoME. This perfective evolution scenario is realized based on the Microservice idea.
 
-\section{Design Decisions for the Mobile App} \label{App}
-	%TODO Add most important information od App-Paper	
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width= \textwidth]{img/UseCaseApp.png}
+\section{Design Decisions for the Mobile App} \label{App} %TODO Zitat, Bild kopiert wie??
+Developing the Mobile App as an extension of CoCoME, includes the coverage of additional use cases. These will be described in section \ref{UseCasesMobileApp}. Section \ref{DesignMobileApp} describes extensions on design level.
+\subsection{Use Cases of the Mobile App}\label{UseCasesMobileApp}
+		\begin{figure}[t]
+			\includegraphics[width=\textwidth]{img/UseCaseApp.png}
 			\caption{Use Case Diagram CoCoME Mobile App}
 		\end{figure}
+
+\textbf{UC 14 - ProcessAppSale}\\
+\textit{Brief Description} A Customer selects the product items s/he wants to buy and the payment by credit card is performed.\\ \newline
+\textit{Involved Actors} AppCustomer, Bank\\ \newline
+\textit{Precondition} The App is ready to process a new sale and the Customer already has an account registered in the System.\\ \newline
+\textit{Trigger} The Customer opens the app and wants to buy product items.\\ \newline
+\textit{Postcondition} The Customer has paid and the sale is registered in the inventory.\\ \newline
+\textit{Standard Process}
+\begin{itemize}[leftmargin=*]
+	\item[1.] The AppCustomer searches products provided by the App.
+	\item[2.] The AppCustomer can see details for each product on a separate site.
+	\item[3.] The AppCustomer adds the product items s/he wants to purchase to the Shopping Cart by clicking the Add to Cart button. Step 1-3 is repeated until all items are added to the cart.
+	\item[4.] The System presents the Customer with the item names, prices and the running total.
+	\item[5.] Denoting the end of adding items, the Customer presses the Proceed to checkout button.
+	\item[6.] The AppCustomer selects the Store where he wants to pick up his	purchased product items. A mobile Application proof of concept 3
+	\item[7.] The AppCustomer is presented with a login form and is required to complete the "Authenticate user" use case.
+	\item[8.] In order to initiate card payment, the Customer selects a credit card used
+	for the purchase.
+	\item[9.] The AppCustomer enters his PIN in the designated field presented by the System.
+	\item[10.] The System presents the Customer with an overview of the purchase, the AppCustomer confirms the purchase and waits for validation. Step 9 is repeated until the validation is successful or the Customer decides to cancel the purchase.
+	\item[11.] Completed sales are logged by the System and sale information are sent to	the Inventory in order to update the stock.
+	\item[12.] A success message is presented to the AppCustomer and the product items
+	are being prepared to be picked up by the customer.
+	\item[13.] The AppCustomer closes the app.
+\end{itemize}
+
+\textit{Alternative or Exceptional Processes}
+\begin{itemize}
+	\item[-] In step 8: No Card available
+	\begin{itemize}
+		\item[1.] In order to add a new credit card the Customer clicks the Add Card button.
+		\item[2.] The Customer enters the card number of the new credit card and saves the card.
+	\end{itemize}
+	
+	\item[-] In step 10: Card validation fails
+	\begin{itemize}
+		\item[1.] The Customer tries again and again.
+		\item[2.] Otherwise, the Customer can decide to cancel the purchase.
+	\end{itemize}
+\end{itemize}
+
+
+\textbf{UC 15 - CreateAppCustomer}\\ \newline
+\textit{Brief Description} The app provides the opportunity to create a new Customer account.\\ \newline
+\textit{Involved Actors} AppCustomer\\ \newline
+\textit{Precondition} The Customer does not have a Customer account yet and the app is started.\\ \newline
+\textit{Trigger} A new AppCustomer wants to create an account.\\ \newline
+\textit{Postcondition} The User is authenticated.\\ \newline
+\textit{Standard Process}
+\begin{itemize}[leftmargin=*]
+	\item[1.] The app presents the Customer a 3 step wizard with forms to fill out, requesting all necessary information to create a new Customer account.
+	\begin{itemize}
+		\item[(a)] Form for name, email and password
+		\item[(b)] Form for address
+		\item[(c)] Summery of the information and a submit button
+	\end{itemize}
+	\item[2.]The Customer fills out the forms, checks the information and submits the	information.
+	\item[3.] The app checks the provided information and creates a new Customer account in the Inventory.
+\end{itemize}
+
+\textit{Alternative or Exceptional Processes}
+\begin{itemize}
+	\item[-] In step 3 : Provided information is incorrect or not valid. The Customer is	notified of the problem and enters the information again until it passes the check.	
+\end{itemize}
+
+\textbf{UC 16 - AuthenticateAppUser}\\ \newline
+\textit{Brief Description} The app provides the opportunity to authenticate a User.\\ \newline
+\textit{Involved Actors} AppCustomer\\ \newline
+\textit{Precondition} The app is started.\\ \newline
+\textit{Trigger} A User wants to authenticate himself.\\ \newline
+\textit{Postcondition} The User is authenticated.\\ \newline
+\textit{Standard Process}
+\begin{itemize}[leftmargin=*]
+	\item[1.] The AppCustomer is presented with a login form and enters his email and password.
+	\item[2.] The app checks the provided credentials and logs the User in.
+\end{itemize}
+
+\textit{Alternative or Exceptional Processes}
+\begin{itemize}
+	\item[-] In step 2: Wrong credentials
+	\begin{itemize}
+		\item[1.] The User is presented with an error message.
+		\item[2.] The User may try again until the authentication succeeds.
+	\end{itemize}
+\end{itemize}
+
+
+
+
+\subsection{Design of Mobile App}\label{DesignMobileApp}
+
+
 
 \section{Setting up a Docker environment} \label{Docker}
 	%TODO Add most important information of docker paper
