@@ -123,8 +123,9 @@ Fig. \ref{SequenceApp} shows the process of opening a page to search for an Item
 
 
 \section{Setting up a Docker environment} \label{Docker}
-	%TODO Add most important information of docker paper
-	Looking to the changes for the Docker project, you can see in figure \ref*{techStack} the changes are affecting the technology stack in the form of adding additional layers. More detailed, the given CoCoME project is moved into the Docker Deamon, which runs a Linux distribution.The original parts of the stack, like Glassfish and the Java Virtual Machine, are still a part of the stack.\\
+
+As shown in Fig. \ref{techStack}, the changes carried out when setting up a Docker environment are affecting the technology stack by adding additional layers. More detailed, the given CoCoME Stack is moved into the Docker Deamon, which runs a Linux distribution.The original parts of the stack, like Glassfish and the Java Virtual Machine, are still a part of the stack.
+	
 	\begin{figure}[!h]
 		\centering
 		\includegraphics[width = 0.5\textwidth]{img/tech_stack_CoCoME.png}
@@ -132,15 +133,14 @@ Fig. \ref{SequenceApp} shows the process of opening a page to search for an Item
 		\label{techStack}
 	\end{figure}
 	
-	%TODO important here?
-	The Dockerfile defines an environment based on the latest version of Ubuntu 16:04. Onto it there is installed Maven, Git and Java by using the Ubuntu package manager.\\
-	Git has two purposes: On the one hand it is used to download the most recent version of CoCoME.	On the other hand, it is used to download a prefabricated version of Glassfish that already includes domains and other adjustments required for CoCoME. Java is required by Glassfish and CoCoME as they need the Java Virtual Machine. Maven is needed to deploy the latest version of CoCoME onto the provided Glassfish servers.
+The Dockerfile defines an environment based on the latest version of Ubuntu 16:04. Onto it there is installed Maven, Git and Java by using the Ubuntu package manager.\\
+Git has two purposes: On the one hand it is used to download the most recent version of CoCoME.	On the other hand, it is used to download a prefabricated version of Glassfish that already includes domains and other adjustments required for CoCoME. Java is required by Glassfish and CoCoME as they need the Java Virtual Machine. Maven is needed to deploy the latest version of CoCoME onto the provided Glassfish servers.
 	
 	
 	During the development, it was decided to implement and provide two different versions. The first version always pulls the most recent CoCoME source code from GitHub, downloads the entire dependencies with maven, compiles and builds the project and finally, deploys CoCoME on the Glassfish servers. . As a consequence. creating and starting a Docker Container takes about one hour.\\
 	In contrast, the second version only  pulls a prefabricated version of CoCoME from GitHub. Therefore, pulling the source code up to building the project is skipped. As a consequence, Maven does not have to be included in the technology stack. Solely, deploying CoCoME on the glassfish server is necessary.\\
 	This reduces the deployment time to a few minutes but has a disadvantage: The prefabricated version is updated manually. Therefore, it is sometime not the most recent version.\\
-	By providing both, a fast deploying version and a current version, the user can choose whats the best for its situation.
+	By providing both, a fast deploying version and a current version, the user can choose what's the best for its situation.
 	
 
 	
