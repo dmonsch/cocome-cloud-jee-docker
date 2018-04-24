@@ -3,8 +3,8 @@
 In this chapter we provide the detailed design documentation for each of the evolution scenarios
 introduced in the prior section. Sec. \ref{App} sketches the design decision for the Mobile App that provides a second sales channel next to the existing Pick-up Shop. Sec. \ref{Docker} describes the adaptive changes of setting up a Docker environment to simplify the update process. They are both based on, or at least use the Hybrid Cloud-based Variant of CoCoME \cite{SWB-469002735}. In contrast, Sec. \ref{MS} provides a detailed design documentation of a new architectural version of CoCoME. This perfective evolution scenario is realized based on the Microservice idea.
 
-\section{Design Decisions for the Mobile App} \label{App} %TODO Zitat, Bild kopiert wie??
-Developing the Mobile App as an extension of CoCoME, includes the coverage of additional use cases. These will be described in section \ref{UseCasesMobileApp}. Section \ref{DesignMobileApp} describes extensions on design level.
+\section{Adding a Mobile App Client} \label{App} %TODO Zitat, Bild kopiert wie??
+Developing the Mobile App Client as an extension of CoCoME requires additional use cases. These are described in Sec. \ref{UseCasesMobileApp}. Sec. \ref{DesignMobileApp} describes extensions on design level. The Mobile App Client is using the hybrid cloud-based variant of CoCoME but does not require any changes of CoCoME itself. The content of this chapter mainly originates from \cite{schnabel}.
 \subsection{Use Cases of the Mobile App}\label{UseCasesMobileApp}
 		\begin{figure}[t]
 			\includegraphics[width=\textwidth]{img/UseCaseApp.png}
@@ -97,18 +97,35 @@ Developing the Mobile App as an extension of CoCoME, includes the coverage of ad
 \end{itemize}
 
 
-
+\newpage
 
 \subsection{Design of the Mobile App}\label{DesignMobileApp}
-Inhalt kommt aus \cite{schnabel}
-%TODO Hier muss ein TExt rein, der das Design beschreibt. Ähnlkich zu 5.4.2 aus altem report. DIeser Text muss auf Komponentendiagramm und Sequenzdiagramm verweisen. Beide Digramm aus Schnabels Paper erstellen.
+ In Fig. \ref{ComponentApp}, the component diagram for this evolution scenario is shown. For adding the Mobile App client, the hybrid cloud-based variant of CoCoME did not have to be modified. Therefore, CoCoME is encapsulated in a single component. Simply the three web services \textit{WebService::Inventory::LoginManager, WebService::Inventory::Store and WebService::Inventory::Enterprise} used by the App Client are emphasized. The entire component diagram for the hybrid cloud-based variant is available in the Technical Report \cite{SWB-469002735}. 
+ \\ Fig. \ref{ComponentApp} indicates that the AppShop requires an adapter to access the web services provided by CoCoME. This is because CoCoME uses SOAP/WS*-based web services which are not compatible with the technology used to implement the AppShop Client. A more detailed introduction about the technology used to implement the Mobile App Client can be found in \cite{schnabel}. 
+  
+ \begin{figure}[!h]
+	\includegraphics[width=\textwidth]{img/appComponent.png}
+	\caption{Component Diagram of the CoCoME Ecosystem After Adding the Mobile App Client}
+	\label{ComponentApp}
+\end{figure}
+
+  The \textit{AppShopAdapter} consumes the three web services \textit{WebService::Inventory::LoginManager, WebService::Inventory::Store} and \textit{WebService::Inventory::Enterprise} and provides a Rest Api which is used by the actual \textit{AppShop}. This Rest Api contains endpoints to retrieve and process Credit Card, Enterprise and StockItem information. To implement \emph{UC14-16}, the Api also provides endpoints for user management and processing sales. 
+  
+\begin{figure}[!h]
+	\includegraphics[width=\textwidth]{img/appSearchSequence.png}
+	\caption{Sequence Diagram of Searching an Item in the Mobile App Client}
+	\label{SequenceApp}
+\end{figure}
+
+Fig. \ref{SequenceApp} shows the process of opening a page to search for an Item. The customer opens the \textit{WebShopClient} and clicks on the "Search" button to search for an item. To open the page, the \textit{NavigatorMenu} must call the \textit{Navigator} which creates a pagestate object and passes the object to the page. This HTML page is now presented to the customer. To fill the page with information, i.e when searching for a \textit{ProductItem}, the page uses services provided by the \textit{ServiceHolder}. In this case, the \textit{ItemService} calls the responsible REST-Service of \textit{AppShopAdapter} which in turn retrieves the necessary information from the WSDL services provided by CoCoME.
+
 
 
 
 \section{Setting up a Docker environment} \label{Docker}
 	%TODO Add most important information of docker paper
 	Looking to the changes for the Docker project, you can see in figure \ref*{techStack} the changes are affecting the technology stack in the form of adding additional layers. More detailed, the given CoCoME project is moved into the Docker Deamon, which runs a Linux distribution.The original parts of the stack, like Glassfish and the Java Virtual Machine, are still a part of the stack.\\
-	\begin{figure}[H]
+	\begin{figure}[!h]
 		\centering
 		\includegraphics[width = 0.5\textwidth]{img/tech_stack_CoCoME.png}
 		\caption{Extended technology stack CoCoME}
