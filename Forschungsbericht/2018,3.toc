@@ -8,7 +8,7 @@
 \contentsline {chapter}{\numberline {3}Design Details for Evolution Scenarios}{7}{chapter.3}
 \contentsline {section}{\numberline {3.1}Design Decisions for the Mobile App}{7}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Use Cases of the Mobile App}{7}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}Design of Mobile App}{10}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.2}Design of the Mobile App}{10}{subsection.3.1.2}
 \contentsline {section}{\numberline {3.2}Setting up a Docker environment}{10}{section.3.2}
 \contentsline {section}{\numberline {3.3}Using Microservices Technology}{11}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Products}{11}{subsection.3.3.1}
