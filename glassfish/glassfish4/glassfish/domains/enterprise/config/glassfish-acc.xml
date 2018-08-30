@@ -51,7 +51,7 @@
 <!DOCTYPE client-container PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Application Client Container//EN" "http://glassfish.org/dtds/glassfish-application-client-container_1_3.dtd">
 
 <client-container>
-  <target-server name="tobias-IdeaPad-U430-Touch" address="localhost" port="8337"/>
+  <target-server name="tobi-desktop" address="localhost" port="8337"/>
   <log-service file="" level="WARNING"/>
   <message-security-config auth-layer="SOAP">
     <!-- turned off by default -->

@@ -1,0 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:body>
+    <ui:composition template="/templates/commonTemplate.xhtml">
+        <ui:define name="body">
+            Welcome to the #{plantInformation.activePlant.name} Plant at #{plantInformation.activePlant.data.location}!
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

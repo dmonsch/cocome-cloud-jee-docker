@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:of="http://omnifaces.org/functions">
+
+<h:body>
+    <ui:composition template="/templates/commonTemplate.xhtml">
+        <ui:define name="body">
+            <h:form>
+                <table>
+                    <tr>
+                        <td>
+                            <h:outputText
+                                    value="#{strings['puc.create.name.text']}"/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{name}"
+                                         required="true"
+                                         validatorMessage="#{of:format3(strings['validation.name.failed'],
+                                         ['puc_opr.table.header_name'],3,30)}">
+                                <f:validateLength minimum="3" maximum="30"/>
+                                <f:validateRegex pattern="#{strings['input.string.regex']}"/>
+                            </h:inputText>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText
+                                    value="#{strings['pu.table.header.interfacurl']}"/>
+                        </td>
+                        <td>
+                            <h:inputText value="#{interfaceUrl}"
+                                         required="true">
+                                <f:validateLength minimum="3" maximum="100"/>
+                            </h:inputText>
+                        </td>
+                        <td>
+                            <h:commandButton
+                                    action="#{productionUnitClassView.importPUC(name, interfaceUrl, plantInformation.activePlant)}"
+                                    value=" #{of:format1(strings['button.import.label'],strings['puc.short.text'])}"/>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

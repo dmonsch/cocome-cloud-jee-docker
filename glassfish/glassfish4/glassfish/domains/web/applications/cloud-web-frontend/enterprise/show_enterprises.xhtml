@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:of="http://omnifaces.org/functions">
+
+<h:body>
+
+    <ui:composition template="/templates/commonTemplate.xhtml">
+
+        <ui:define name="body">
+            <h:form>
+                <h:dataTable value="#{enterpriseInformation.enterprises}" var="enterprise"
+                             styleClass="product-table" headerClass="product-table-header"
+                             rowClasses="product-table-odd-row,product-table-even-row"
+                             columnClasses="product-table-text-col, product-table-text-col, product-table-number-col">
+                    <h:column>
+                        <f:facet name="header">#{strings['enterprise.table.header_id']}</f:facet>
+                        #{enterprise.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{strings['enterprise.table.header_name']}</f:facet>
+                        #{enterprise.name}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{strings['enterprise.table.header_action']}</f:facet>
+                        <h:commandLink action="#{enterpriseInformation.switchToEnterprise(enterprise, 'show_stores?faces-redirect=true')}"
+                                       title="#{strings['enterprise.table.action.show_stores']}">
+                            <h:graphicImage value="#{resource['icon:icon_shop.png']}" styleClass="button"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{enterpriseInformation.switchToEnterprise(enterprise, 'show_plants?faces-redirect=true')}"
+                                       title="#{strings['enterprise.table.action.show_plants']}">
+                            <h:graphicImage value="#{resource['icon:icon_plant.png']}" styleClass="button"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{enterpriseInformation.switchToEnterprise(enterprise, 'show_recipes?faces-redirect=true')}"
+                                       title="#{strings['enterprise.table.action.show_recipes']}">
+                            <h:graphicImage value="#{resource['icon:recipe.png']}" styleClass="button"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{enterpriseInformation.switchToEnterprise(enterprise, 'show_production_orders?faces-redirect=true')}"
+                                       title="#{strings['enterprise.table.action.show_production_orders']}">
+                            <h:graphicImage value="#{resource['icon:icon_deliverables.png']}" styleClass="button"/>
+                        </h:commandLink>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+            <h:form>
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <h:button outcome="/enterprise/create_enterprise"
+                                      value="#{of:format1(strings['button.add.label'], 'Enterprise')}"/>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

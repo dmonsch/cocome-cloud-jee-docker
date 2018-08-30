@@ -1,0 +1,47 @@
+/* AUTOMATICALLY GENERATED ON Thu Aug 30 17:15:50 CEST 2018*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "deleteProductionUnitOperation,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitOperationTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "updateProductionUnitOperation,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitOperationTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitClassByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitOperationsByProductionUnitClassID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "updateProductionUnit,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "updateProductionUnitOperation,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitOperationTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryPlantOperationOrderById,ServiceEndpoint,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "updateProductionUnit,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitClassesByPlantID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryPlantOperationOrderById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "updateProductionUnitClass,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitClassTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitOperationByID,ServiceEndpoint,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitsByPlantID,ServiceEndpoint,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "createProductionUnit,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "createProductionUnitOperation,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitOperationTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "importProductionUnitClass,ServiceEndpoint,java.lang.String,java.lang.String,org.cocome.tradingsystem.inventory.application.plant.PlantTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitOperationsByProductionUnitClassID,ServiceEndpoint,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "orderOperation,Local,org.cocome.tradingsystem.inventory.application.plant.recipe.PlantOperationOrderTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitClassesByPlantID,ServiceEndpoint,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "createProductionUnitClass,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitClassTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitByID,ServiceEndpoint,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "deleteProductionUnitClass,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitClassTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "createProductionUnitClass,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitClassTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "createProductionUnit,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitClassByID,ServiceEndpoint,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "deleteProductionUnitOperation,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitOperationTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "updateProductionUnitClass,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitClassTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "createProductionUnitOperation,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitOperationTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitOperationByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "queryProductionUnitsByPlantID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "deleteProductionUnit,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "orderOperation,ServiceEndpoint,org.cocome.tradingsystem.inventory.application.plant.recipe.PlantOperationOrderTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "deleteProductionUnit,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "importProductionUnitClass,Local,java.lang.String,java.lang.String,org.cocome.tradingsystem.inventory.application.plant.PlantTO";
+  permission javax.security.jacc.EJBMethodPermission "PlantManager", "deleteProductionUnitClass,Local,org.cocome.tradingsystem.inventory.application.plant.productionunit.ProductionUnitClassTO";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "PlantManager", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "PlantManagerStartup", "**";
+};
+

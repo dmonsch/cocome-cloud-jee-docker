@@ -1,0 +1,77 @@
+/* AUTOMATICALLY GENERATED ON Thu Aug 30 17:15:50 CEST 2018*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryStoreByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryProductByBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryCustomProductByBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantJobPool", "hasJobs,Local,org.cocome.tradingsystem.inventory.data.plant.recipe.IPlantOperationOrder,org.cocome.tradingsystem.inventory.data.plant.recipe.IPlantOperationOrderEntry";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryNominalParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryRecipeOperationById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PUWorkerPool", "getWorkers,Local,org.cocome.tradingsystem.inventory.data.plant.productionunit.IProductionUnitClass";
+  permission javax.security.jacc.EJBMethodPermission "PUEventCoordinator", "onStart,Local,org.cocome.tradingsystem.inventory.data.plant.productionunit.IProductionUnit,java.lang.Object,org.cocome.tradingsystem.inventory.application.plant.iface.HistoryEntry";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryEntryPointByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryInputEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryEnterpriseByName,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryParameterInteractionByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PUEventCoordinator", "onProgress,Local,org.cocome.tradingsystem.inventory.data.plant.productionunit.IProductionUnit,java.lang.Object,org.cocome.tradingsystem.inventory.application.plant.iface.HistoryEntry";
+  permission javax.security.jacc.EJBMethodPermission "PUManager", "submitOrder,Local,org.cocome.tradingsystem.inventory.data.plant.recipe.IPlantOperationOrder";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryEntryPointInteractionsByRecipeId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryCustomProductByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryStoresByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryPlantOperationsByPlantId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryProductByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryStoreByEnterprise,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryPlantByName,Local,long,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "PUEventCoordinator", "onFinish,Local,org.cocome.tradingsystem.inventory.data.plant.productionunit.IProductionUnit,java.lang.Object,org.cocome.tradingsystem.inventory.application.plant.iface.HistoryEntry";
+  permission javax.security.jacc.EJBMethodPermission "PUManager", "onPUJobStart,Local,org.cocome.tradingsystem.inventory.application.plant.pu.events.PlantJobStartedEvent";
+  permission javax.security.jacc.EJBMethodPermission "PUManager", "onPUJobProgress,Local,org.cocome.tradingsystem.inventory.application.plant.pu.events.PlantJobProgressEvent";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryEnterpriseById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "querySupplierForProduct,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryPlantsByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PUWorkerPool", "addWorker,Local,org.cocome.tradingsystem.inventory.data.plant.productionunit.IProductionUnit";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryPlantOperationByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryRecipeByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryBooleanParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryAllProducts,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantJobPool", "hasJobs,Local,org.cocome.tradingsystem.inventory.data.plant.recipe.IPlantOperationOrder";
+  permission javax.security.jacc.EJBMethodPermission "PUWorkerFactory", "createWorker,Local,org.cocome.tradingsystem.inventory.data.plant.productionunit.IProductionUnit";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryEntryPointInteractionByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryOutputEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "querySuppliers,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryProductionOrderById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryAllProducts,Local,";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryStoreByName,Local,long,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "PlantJobPool", "addJob,Local,org.cocome.tradingsystem.inventory.application.plant.pu.PlantJob";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryParameterById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "querySupplierByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PUManager", "addPUToWorkerPool,Local,org.cocome.tradingsystem.inventory.data.plant.productionunit.IProductionUnit";
+  permission javax.security.jacc.EJBMethodPermission "PUWorkerPool", "shutdownWorkers,Local,";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryProductsBySupplier,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryPlant,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryProductionOrdersByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryAllEnterprises,Local,";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "getMeanTimeToDelivery,Local,org.cocome.tradingsystem.inventory.data.enterprise.IProductSupplier,org.cocome.tradingsystem.inventory.data.enterprise.ITradingEnterprise";
+  permission javax.security.jacc.EJBMethodPermission "PUManager", "onPUJobFinish,Local,org.cocome.tradingsystem.inventory.application.plant.pu.events.PlantJobFinishedEvent";
+  permission javax.security.jacc.EJBMethodPermission "PlantJobPool", "removeJob,Local,org.cocome.tradingsystem.inventory.application.plant.pu.PlantJob";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryRecipeNodeById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryBooleanParameterByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryAllCustomProducts,Local,";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryRecipesByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryRecipeByCustomProductBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryNominalParameterByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryRecipeNodesByRecipeId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "PlantEnterpriseQueryProvider", "queryParameterInteractionsByRecipeId,Local,long";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "PlantJobPool", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "PUWorkerFactory", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "PUManager", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "PlantEnterpriseQueryProvider", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "PUEventCoordinator", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "PUWorkerPool", "**";
+};
+

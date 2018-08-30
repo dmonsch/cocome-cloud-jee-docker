@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:of="http://omnifaces.org/functions">
+
+
+<h:body>
+
+    <ui:composition template="/templates/commonTemplate.xhtml">
+        <ui:define name="body">
+            <h:dataTable value="#{enterpriseDAO.allProducts}" var="product"
+                         styleClass="product-table" headerClass="product-table-header"
+                         rowClasses="product-table-odd-row,product-table-even-row"
+                         columnClasses="product-table-text-col,
+                                        product-table-text-col,
+    				                    product-table-text-col,
+                                        product-table-text-col">
+                <h:column>
+                    <f:facet name="header">#{strings['product.table.header_barcode']}</f:facet>
+                    #{product.barcode}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{strings['product.table.header_name']}</f:facet>
+                    #{product.name}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{strings['product.table.header_purchase_price']}</f:facet>
+                    <h:outputText value="#{product.product.purchasePrice}">
+                        <f:convertNumber type="currency" currencySymbol="€"/>
+                    </h:outputText>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">#{'Protuct Type'}</f:facet>
+                    <h:outputText rendered="#{product.product.class.simpleName eq 'ProductTO'}"
+                                  value="Regular"/>
+                    <h:outputText rendered="#{product.product.class.simpleName eq 'CustomProductTO'}"
+                                  value="Custom"/>
+                </h:column>
+            </h:dataTable>
+            <h:form>
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <h:button outcome="/enterprise/create_product"
+                                      value="#{of:format1(strings['button.add.label'],
+                                                          strings['product.short.text'])}"/>
+                        </td>
+                        <td align="center">
+                            <h:button outcome="/enterprise/create_custom_product"
+                                      value="#{of:format1(strings['button.add.label'],
+                                                          strings['custom.product.short.text'])}"/>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

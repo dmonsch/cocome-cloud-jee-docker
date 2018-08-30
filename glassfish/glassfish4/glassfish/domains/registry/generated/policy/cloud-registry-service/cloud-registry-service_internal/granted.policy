@@ -1,0 +1,23 @@
+/* AUTOMATICALLY GENERATED ON Thu Aug 30 17:14:21 CEST 2018*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "URIRegistryManager", "rebind,Local,java.lang.String,java.net.URI";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistryManager", "unbind,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistry", "unbind,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistryManager", "rebind,ServiceEndpoint,java.lang.String,java.net.URI";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistry", "rebind,Local,java.lang.String,java.lang.Object";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistryManager", "lookup,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistryManager", "getBoundNames,Local,";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistryManager", "getBoundNames,ServiceEndpoint,";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistryManager", "unbind,ServiceEndpoint,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistryManager", "lookup,ServiceEndpoint,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistry", "getEntries,Local,";
+  permission javax.security.jacc.EJBMethodPermission "URIRegistry", "lookup,Local,java.lang.String";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "URIRegistry", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "URIRegistryManager", "**";
+};
+

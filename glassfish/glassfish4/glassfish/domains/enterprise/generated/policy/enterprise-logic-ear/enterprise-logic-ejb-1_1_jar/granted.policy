@@ -1,0 +1,73 @@
+/* AUTOMATICALLY GENERATED ON Thu Aug 30 17:16:13 CEST 2018*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryEnterpriseById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryBooleanParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryEntryPointInteractionsByRecipeId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "querySupplierForProduct,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryStoreByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryNominalParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryPlant,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryRecipeNodesByRecipeId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryAllProducts,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryNominalParameterByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryPlantOperationByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryEnterpriseByName,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "querySuppliers,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryProductionOrdersByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryBooleanParameterByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryAllCustomProducts,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryRecipeByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "ReportingServer", "getEnterpriseStockReport,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "ProductionJobPool", "hasJobs,Local,org.cocome.tradingsystem.inventory.data.plant.recipe.IProductionOrder";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryPlantsByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryProductByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryParameterById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryStoresByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryProductByBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "querySupplierByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryPlantByName,Local,long,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseUserQueryProvider", "queryCustomer,Local,org.cocome.tradingsystem.inventory.data.usermanager.IUser";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryOutputEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryStoreByName,Local,long,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryInputEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "ProductionJobPool", "hasJobs,Local,org.cocome.tradingsystem.inventory.data.plant.recipe.IProductionOrder,org.cocome.tradingsystem.inventory.data.plant.recipe.IProductionOrderEntry";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryProductsBySupplier,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryCustomProductByBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryRecipeNodeById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryEntryPointInteractionByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryPlantOperationsByPlantId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryProductionOrderById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryRecipeByCustomProductBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "ProductionManager", "onOperationFinished,Local,org.cocome.tradingsystem.inventory.application.production.PlantOperationOrderFinishedEvent";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryParameterInteractionByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryParameterInteractionsByRecipeId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "ProductionJobPool", "addJob,Local,org.cocome.tradingsystem.inventory.application.production.ProductionJob";
+  permission javax.security.jacc.EJBMethodPermission "ProductionManager", "submitOrder,Local,org.cocome.tradingsystem.inventory.data.plant.recipe.IProductionOrder";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryStoreByEnterprise,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "ReportingServer", "getEnterpriseDeliveryReport,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryEntryPointByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryAllEnterprises,Local,";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryRecipesByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryRecipeOperationById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "getMeanTimeToDelivery,Local,org.cocome.tradingsystem.inventory.data.enterprise.IProductSupplier,org.cocome.tradingsystem.inventory.data.enterprise.ITradingEnterprise";
+  permission javax.security.jacc.EJBMethodPermission "ProductionJobPool", "removeJob,Local,org.cocome.tradingsystem.inventory.application.production.ProductionJob";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryAllProducts,Local,";
+  permission javax.security.jacc.EJBMethodPermission "ReportingServer", "getStoreStockReport,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseQueryProvider", "queryCustomProductByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "ProductDispatcherServer", "dispatchProductsFromOtherStores,Local,long,java.util.Collection";
+  permission javax.security.jacc.EJBMethodPermission "EnterpriseUserQueryProvider", "queryUserByName,Local,java.lang.String";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "EnterpriseUserQueryProvider", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "EnterpriseQueryProvider", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ProductDispatcherServer", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ProductionManager", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ProductionJobPool", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "ReportingServer", "**";
+};
+

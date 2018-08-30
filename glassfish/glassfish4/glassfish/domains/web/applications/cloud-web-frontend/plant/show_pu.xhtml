@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:of="http://omnifaces.org/functions">
+
+<h:body>
+
+    <ui:composition template="/templates/commonTemplate.xhtml">
+
+        <ui:define name="body">
+            <h:form>
+                <h:dataTable value="#{productionUnitDAO.getAllByParentObj(plantInformation.activePlant)}"
+                             var="item"
+                             styleClass="product-table"
+                             headerClass="product-table-header"
+                             rowClasses="product-table-odd-row,product-table-even-row"
+                             columnClasses="
+                                product-table-text-col,
+                                product-table-text-col,
+                                product-table-check-col,
+                                product-table-text-col,
+                                product-table-number-col">
+                    <h:column>
+                        <f:facet name="header">Location</f:facet>
+                        <h:outputText value="#{item.data.location}"
+                                      rendered="#{not item.editingEnabled}"/>
+                        <h:inputText value="#{item.data.location}" rendered="#{item.editingEnabled}"
+                                     validatorMessage="#{of:format3(strings['validation.name.failed'],
+                                                                    'Location',3, 30)}">
+                            <f:validateLength minimum="3" maximum="30"/>
+                            <f:validateRegex pattern="#{strings['input.string.regex']}"/>
+                        </h:inputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{strings['pu.table.header.interfacurl']}</f:facet>
+                        <h:outputText value="#{item.data.interfaceUrl}"
+                                      rendered="#{not item.editingEnabled}"/>
+                        <h:inputText value="#{item.data.interfaceUrl}" rendered="#{item.editingEnabled}"
+                                     validatorMessage="#{of:format3(strings['validation.name.failed'],
+                                                                    strings['pu.table.header.interfacurl'],3,100)}">
+                            <f:validateLength minimum="3" maximum="100"/>
+                            <f:validateRegex pattern="#{strings['input.string.regex']}"/>
+                        </h:inputText>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Double Flag</f:facet>
+                        <h:selectBooleanCheckbox value="#{item.data.double}"
+                                     disabled='#{not item.editingEnabled}'>
+                        </h:selectBooleanCheckbox>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Production Unit Class</f:facet>
+                        <h:outputText value="#{item.data.productionUnitClass.name}"
+                                      rendered="#{not item.editingEnabled}"/>
+                        <h:selectOneMenu rendered='#{item.editingEnabled}'
+                                         value="#{item.data.productionUnitClass}"
+                                         converter="omnifaces.SelectItemsIndexConverter">
+                            <f:selectItems value="#{productionUnitView.PUCs}"
+                                           var="c"
+                                           itemLabel="#{c.name}"/>
+                        </h:selectOneMenu>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">#{strings['enterprise.table.header_action']}</f:facet>
+                        <h:commandLink action="#{item.setEditingEnabled(true)}"
+                                       styleClass="button"
+                                       title="#{strings['action.edit']}"
+                                       rendered="#{not item.editingEnabled}">
+                            <h:graphicImage
+                                    value="#{resource['icon:icon_edit.png']}"
+                                    styleClass="button"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{productionUnitView.delete(item)}"
+                                       styleClass="button"
+                                       title="#{strings['action.remove']}"
+                                       rendered="#{not item.editingEnabled}">
+                            <h:graphicImage
+                                    value="#{resource['icon:icon_remove.png']}"
+                                    styleClass="button"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{productionUnitView.update(item)}"
+                                       styleClass="button"
+                                       title="#{strings['action.save']}"
+                                       rendered="#{item.editingEnabled}">
+                            <h:graphicImage value="#{resource['icon:icon_save.png']}"
+                                            styleClass="button"/>
+                        </h:commandLink>
+                        <h:commandLink action="#{item.setEditingEnabled(false)}"
+                                       immediate="true"
+                                       styleClass="button"
+                                       title="#{strings['action.cancel']}"
+                                       rendered="#{item.editingEnabled}">
+                            <h:graphicImage value="#{resource['icon:icon_reset.png']}"
+                                            styleClass="button"/>
+                        </h:commandLink>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+
+            <h:form>
+                <table width="100%">
+                    <tr>
+                        <td align="center">
+                            <h:button outcome="/plant/create_pu"
+                                      value="#{of:format1(strings['button.add.label'], strings['pu.short.text'])}"/>
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</h:body>
+
+</html>

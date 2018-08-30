@@ -1,0 +1,86 @@
+/* AUTOMATICALLY GENERATED ON Thu Aug 30 17:16:32 CEST 2018*/
+/* DO NOT EDIT */
+
+grant {
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "updateItem,Local,long,org.cocome.tradingsystem.inventory.application.store.ProductWithItemTO";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryAllCustomProducts,Local,";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "querySuppliers,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryEnterpriseByName,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getProductsWithStockItems,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryEnterpriseById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "TrivialBankServer", "debitCard,Local,org.cocome.tradingsystem.external.TransactionID";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryParameterInteractionByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "orderProducts,Local,long,org.cocome.tradingsystem.inventory.application.store.ComplexOrderTO";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryAllEnterprises,Local,";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryProductionOrderById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryStoreByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryProductsBySupplier,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryProductByBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryProductByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "createItem,Local,long,org.cocome.tradingsystem.inventory.application.store.ProductWithItemTO";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryRecipeOperationById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getProductsWithOnDemandItems,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryAllProducts,Local,";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getStore,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "querySupplierForProduct,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryPlantOperationsByPlantId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryRecipesByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "rollInReceivedOrder,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getOrder,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryPlantByName,Local,long,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryRecipeNodesByRecipeId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "changePrice,Local,long,org.cocome.tradingsystem.inventory.application.store.ProductWithItemTO";
+  permission javax.security.jacc.EJBMethodPermission "StoreEventHandler", "onEvent,Local,org.cocome.tradingsystem.cashdeskline.events.AccountSaleEvent";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryStoreByName,Local,long,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryParameterInteractionsByRecipeId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "querySupplierByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "BarcodeScannerModel", "sendProductBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "accountSale,Local,long,org.cocome.tradingsystem.inventory.application.store.SaleTO";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getProductWithItem,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryAllProducts,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryRecipeNodeById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getProductsWithLowStock,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getProductWithStockItem,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryStoreByEnterprise,Local,long,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getOutstandingOrders,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "getAllProducts,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "CardReaderModel", "sendCreditCardInfo,Local,java.lang.String";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryProductionOrdersByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryEntryPointInteractionsByRecipeId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryPlantOperationByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryBooleanParameterByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryNominalParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryRecipeByCustomProductBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "getMeanTimeToDelivery,Local,org.cocome.tradingsystem.inventory.data.enterprise.IProductSupplier,org.cocome.tradingsystem.inventory.data.enterprise.ITradingEnterprise";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryEntryPointByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryBooleanParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryNominalParameterByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryParameterById,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "deleteItem,Local,long,org.cocome.tradingsystem.inventory.application.store.ProductWithItemTO";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryOutputEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryPlant,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryCustomProductByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryRecipeByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryStoresByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryCustomProductByBarcode,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryPlantsByEnterpriseId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "CardReaderModel", "sendCreditCardPin,Local,int";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryInputEntryPointsByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryEntryPointInteractionByID,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "CoordinatorModel", "updateStatistics,Local,java.lang.String,org.cocome.tradingsystem.cashdeskline.coordinator.Sale";
+  permission javax.security.jacc.EJBMethodPermission "TrivialBankServer", "validateCard,Local,java.lang.String,int";
+  permission javax.security.jacc.EJBMethodPermission "StoreEnterpriseQueryProvider", "queryParametersByRecipeOperationId,Local,long";
+  permission javax.security.jacc.EJBMethodPermission "StoreServer", "markProductsUnavailableInStock,Local,long,org.cocome.tradingsystem.inventory.application.store.ProductMovementTO";
+};
+
+grant      principal * * {
+  permission javax.security.jacc.EJBRoleRefPermission "StoreEnterpriseQueryProvider", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "CoordinatorModel", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "StoreEventHandler", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "StoreServer", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "TrivialBankServer", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "CardReaderModel", "**";
+  permission javax.security.jacc.EJBRoleRefPermission "BarcodeScannerModel", "**";
+};
+
