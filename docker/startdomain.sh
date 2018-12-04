@@ -99,7 +99,7 @@ echo "AS_ADMIN_PASSWORD=${PASSWORD}" >> /usr/src/glassfish/glassfish4/glassfish/
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin --user admin --passwordfile /usr/src/glassfish/glassfish4/glassfish/passwordfile --port $REGISTRY_PORT enable-secure-admin
 
 #############################################################################
-git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-platform-migration.git usr/src/cocome
+git clone https://github.com/dmonsch/cocome-cloud-jee-platform-migration.git usr/src/cocome
 
 git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-service-adapter.git usr/src/serviceadapter
 
@@ -143,8 +143,6 @@ echo '########## restart domain STORE ##################'
 echo '########## restart domain ENTERPRISE ##################'
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain enterprise
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain -v enterprise
-
-
 
 # Last command was "-v" -> glassfish in verbose-mode -> registry-domain logs are printed out on console
 #->  docker does not stop the container

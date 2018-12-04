@@ -15,6 +15,8 @@ ADD pullChanges.sh /pullChanges.sh
 RUN \
 	apt-get update &&\
 	apt-get install -y software-properties-common && \
+	apt-get install unzip && \
+	apt-get install curl wget && \
 	add-apt-repository -y ppa:webupd8team/java && \
 	echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
 	apt-get update &&\
@@ -22,12 +24,17 @@ RUN \
 	rm -rf /var/lib/apt/lists/* && \
 	rm -rf /var/cache/oracle-jdk8-installer
 
-#get glassfish domains 
 RUN git clone https://github.com/cocome-community-case-study/cocome-cloud-jee-docker.git usr/src/ && \
  	rm usr/src/*.md  && \
 	rm -r usr/src/docker && \
-	rm usr/src/glassfish/README.md
+	rm usr/src/glassfish/README.md && \
+	mkdir -p /etc/monitoring/
 
+# Derby bug fix
+RUN curl -o db-derby.zip https://www-eu.apache.org/dist//db/derby/db-derby-10.13.1.1/db-derby-10.13.1.1-bin.zip && \
+	unzip db-derby.zip -d javadb && \
+	rm -rf usr/src/glassfish/glassfish4/javadb && \
+	mv javadb/db-derby-10.13.1.1-bin/ usr/src/glassfish/glassfish4/javadb/
 
 ADD cocome-maven-project-setting.xml /usr/src/cocome-maven-project-setting.xml
 ADD serviceadapter-settings.xml /usr/src/serviceadapter-settings.xml
