@@ -1,25 +1,7 @@
 #!/bin/bash
 set -e
 
-echo '####################  pull changes   ####################### '
-
-##############################################################################
-
-git pull https://github.com/dmonsch/cocome-cloud-jee-platform-migration.git usr/src/cocome
-
-git pull https://github.com/cocome-community-case-study/cocome-cloud-jee-service-adapter.git usr/src/serviceadapter
-
-
-cd /usr/src/cocome/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml cleant post-clean 
-
-cd /usr/src/cocome/cocome-maven-project && mvn -s /usr/src/cocome-maven-project-setting.xml install
-
-
-cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml cleant post-clean 
-
-cd /usr/src/serviceadapter && mvn -s /usr/src/serviceadapter-settings.xml install
-
-
+echo '### restart services ###'
 ##############################################################################
 #restart needed because of changed attributes like password
 #Important notice: restart of the glassfish domains or start in general has to take playce in this order!
@@ -42,9 +24,3 @@ echo '########## restart domain WEB ##################'
 echo '########## restart domain STORE ##################'
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain store
 /usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain  store
-
-echo '########## restart domain ENTERPRISE ##################'
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin stop-domain enterprise
-/usr/src/glassfish/glassfish4/glassfish/bin/asadmin start-domain -v enterprise
-
-
